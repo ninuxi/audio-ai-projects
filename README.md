@@ -1,4 +1,4 @@
-# 🎵 Audio AI Projects
+# 🎵 Audio AI Projects 
 
 **Antonio Mainenti - Audio AI Engineer in Training**
 
