@@ -73,7 +73,7 @@ class AudioFeatureVisualizer:
         features['mfcc'] = mfccs
         
         # Chroma features
-        chroma = librosa.feature.chroma(y=self.y, sr=self.sr)
+        chroma = librosa.feature.chroma_stft(y=self.y, sr=self.sr)
         features['chroma'] = chroma
         
         # Spectral centroid
@@ -128,7 +128,7 @@ class AudioFeatureVisualizer:
         axes[2,0].set_ylabel('Hz')
         
         # Tempo info
-        axes[2,1].text(0.5, 0.5, f'Tempo stimato: {features["tempo"]:.1f} BPM', 
+        axes[2,1].text(0.5, 0.5, f'Tempo stimato: {float(features["tempo"]):.1f} BPM', 
                        transform=axes[2,1].transAxes, ha='center', va='center', fontsize=16)
         axes[2,1].set_title('Tempo Analysis')
         axes[2,1].axis('off')
@@ -137,6 +137,104 @@ class AudioFeatureVisualizer:
         plt.show()
         
         return features
+    
+    def detect_onsets_and_beats(self):
+        """Rileva onsets e beats nell'audio"""
+        # Onset detection
+        onsets = librosa.onset.onset_detect(y=self.y, sr=self.sr)
+        onset_times = librosa.frames_to_time(onsets, sr=self.sr)
+        
+        # Beat tracking
+        tempo, beats = librosa.beat.beat_track(y=self.y, sr=self.sr)
+        beat_times = librosa.frames_to_time(beats, sr=self.sr)
+        
+        # Visualizza
+        plt.figure(figsize=(12, 6))
+        librosa.display.waveshow(self.y, sr=self.sr, alpha=0.6)
+        plt.vlines(onset_times, -1, 1, color='red', alpha=0.8, label='Onsets')
+        plt.vlines(beat_times, -1, 1, color='blue', alpha=0.8, label='Beats')
+        plt.legend()
+        plt.title(f'Onsets and Beats - Tempo: {float(tempo):.1f} BPM')
+        plt.xlabel('Tempo (s)')
+        plt.ylabel('Ampiezza')
+        plt.tight_layout()
+        plt.show()
+        
+        print(f"🎯 Onsets rilevati: {len(onset_times)}")
+        print(f"🎵 Beats rilevati: {len(beat_times)}")
+        print(f"🎼 Tempo: {float(tempo):.1f} BPM")
+        
+        return onset_times, beat_times, tempo
+    
+    def advanced_features(self):
+        """Features avanzate per ML"""
+        print("\n🔬 ANALISI AVANZATA...")
+        
+        # Spectral features
+        spectral_bandwidth = librosa.feature.spectral_bandwidth(y=self.y, sr=self.sr)
+        spectral_contrast = librosa.feature.spectral_contrast(y=self.y, sr=self.sr)
+        spectral_flatness = librosa.feature.spectral_flatness(y=self.y)
+        
+        # Rhythm features
+        tempogram = librosa.feature.tempogram(y=self.y, sr=self.sr)
+        
+        # Harmonic-percussive separation
+        y_harmonic, y_percussive = librosa.effects.hpss(self.y)
+        
+        # Visualizza features avanzate
+        fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+        
+        # Spectral Bandwidth
+        times = librosa.frames_to_time(np.arange(len(spectral_bandwidth[0])), sr=self.sr)
+        axes[0,0].plot(times, spectral_bandwidth[0])
+        axes[0,0].set_title('Spectral Bandwidth')
+        axes[0,0].set_xlabel('Tempo (s)')
+        axes[0,0].set_ylabel('Hz')
+        
+        # Spectral Contrast
+        librosa.display.specshow(spectral_contrast, x_axis='time', ax=axes[0,1])
+        axes[0,1].set_title('Spectral Contrast')
+        axes[0,1].set_ylabel('Frequency bands')
+        
+        # Spectral Flatness
+        axes[1,0].plot(times, spectral_flatness[0])
+        axes[1,0].set_title('Spectral Flatness')
+        axes[1,0].set_xlabel('Tempo (s)')
+        axes[1,0].set_ylabel('Flatness')
+        
+        # Tempogram
+        librosa.display.specshow(tempogram, x_axis='time', y_axis='tempo', ax=axes[1,1])
+        axes[1,1].set_title('Tempogram')
+        
+        plt.tight_layout()
+        plt.show()
+        
+        # Visualizza separazione armonica/percussiva
+        plt.figure(figsize=(12, 8))
+        
+        plt.subplot(3, 1, 1)
+        librosa.display.waveshow(self.y, sr=self.sr, alpha=0.6)
+        plt.title('Audio Originale')
+        
+        plt.subplot(3, 1, 2)
+        librosa.display.waveshow(y_harmonic, sr=self.sr, alpha=0.6, color='blue')
+        plt.title('Componente Armonica')
+        
+        plt.subplot(3, 1, 3)
+        librosa.display.waveshow(y_percussive, sr=self.sr, alpha=0.6, color='red')
+        plt.title('Componente Percussiva')
+        
+        plt.tight_layout()
+        plt.show()
+        
+        return {
+            'spectral_bandwidth': spectral_bandwidth,
+            'spectral_contrast': spectral_contrast,
+            'spectral_flatness': spectral_flatness,
+            'tempogram': tempogram,
+            'harmonic': y_harmonic,
+            'percussive': y_percussive
+        }
     
     def analyze_complete(self):
         """Analisi completa del file audio"""
@@ -149,16 +247,43 @@ class AudioFeatureVisualizer:
         self.visualize_mel_spectrogram()
         features = self.visualize_features()
         
-        # Statistiche
-        print("\n📊 STATISTICHE:")
+        # Nuove analisi
+        onset_times, beat_times, tempo = self.detect_onsets_and_beats()
+        advanced_features = self.advanced_features()
+        
+        # Statistiche estese
+        print("\n📊 STATISTICHE COMPLETE:")
         print(f"Durata: {self.duration:.2f} secondi")
         print(f"Sample rate: {self.sr} Hz")
         print(f"Canali: {'Mono' if len(self.y.shape) == 1 else 'Stereo'}")
         print(f"Ampiezza max: {np.max(np.abs(self.y)):.3f}")
         print(f"RMS: {np.sqrt(np.mean(self.y**2)):.3f}")
-        print(f"Tempo stimato: {features['tempo']:.1f} BPM")
+        print(f"Tempo stimato: {float(features['tempo']):.1f} BPM")
+        print(f"Onsets: {len(onset_times)} eventi")
+        print(f"Beats: {len(beat_times)} battiti")
         
-        return features
+        # Analisi spettrale
+        spectral_centroid_mean = np.mean(features['spectral_centroid'])
+        spectral_rolloff_mean = np.mean(features['spectral_rolloff'])
+        zcr_mean = np.mean(features['zcr'])
+        
+        print(f"\n🔍 ANALISI SPETTRALE:")
+        print(f"Centroide spettrale medio: {spectral_centroid_mean:.1f} Hz")
+        print(f"Rolloff spettrale medio: {spectral_rolloff_mean:.1f} Hz")
+        print(f"Zero crossing rate medio: {zcr_mean:.3f}")
+        
+        # Classificazione automatica semplice
+        print(f"\n🤖 CLASSIFICAZIONE AUTOMATICA:")
+        if zcr_mean > 0.1:
+            print("📢 Probabilmente: VOCE/SPEECH")
+        elif spectral_centroid_mean > 3000:
+            print("🎼 Probabilmente: MUSICA CON ALTI")
+        elif spectral_centroid_mean < 1000:
+            print("🥁 Probabilmente: PERCUSSIONI/BASSI")
+        else:
+            print("🎵 Probabilmente: MUSICA MISTA")
+        
+        return features, advanced_features
 
 # Esempio di utilizzo
 if __name__ == "__main__":
@@ -170,11 +295,13 @@ if __name__ == "__main__":
         visualizer = AudioFeatureVisualizer(audio_file)
         
         # Esegui analisi completa
-        features = visualizer.analyze_complete()
+        features, advanced_features = visualizer.analyze_complete()
         
         print("\n✅ Analisi completata!")
-        print("Questo è il tuo primo progetto Audio AI!")
+        print("🎯 Il tuo Audio AI Visualizer è ora completo!")
+        print("🚀 Pronto per il prossimo progetto!")
         
     except Exception as e:
         print(f"❌ Errore: {e}")
         print("Assicurati di avere un file audio valido e le librerie installate")
+        print("Percorso file audio:", audio_file)
