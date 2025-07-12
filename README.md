@@ -49,7 +49,7 @@ audio-ai-projects/
 │   │   ├── feature_extractor.py
 │   │   ├── batch_processor.py
 │   │   └── data/
-│   ├── week3-call-analytics/        # ← CAMBIA DA week3-classification
+│   ├── week3-call-analytics/        
 │   │   ├── README.md
 │   │   ├── complete_call_analytics.py
 │   │   ├── business_case.md
@@ -119,11 +119,12 @@ audio-ai-projects/
 
 [View Project →](./01-fundamentals/week3-call-analytics/)
 
-### Week 4: Advanced Preprocessing Pipeline 📋 Planned
-**Status**: 📋 Planned  
-**Description**: Advanced audio preprocessing and feature engineering pipeline  
-**Features**: Noise reduction, normalization, augmentation, feature selection  
-**Tech Stack**: Python, librosa, scikit-learn, tensorflow  
+### Week 4: Music Information Retrieval ✅ Complete
+**Status**: ✅ Complete
+**Description**: Music analysis system for cultural applications
+**Features**: Genre classification, harmonic analysis, emotion detection, structure analysis
+**Accuracy**: 80% genre classification, professional-grade metadata extraction
+**Applications**: Conservatori, RAI Archives, Theater monitoring, Cultural heritage
 
 [View Project →](./01-fundamentals/week4-preprocessing/)
 
