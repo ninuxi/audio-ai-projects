@@ -1,16 +1,23 @@
-# Week 2: Batch Audio Feature Extraction
+## week2-batch-processor/README.md
+```markdown
+# ⚙️ Week 2: Batch Processor
 
-## Overview
-Advanced audio processing system for analyzing multiple files simultaneously and creating ML-ready datasets.
+**Automated audio file processing workflows**
 
-## Features
-- ✅ Batch processing of multiple audio files
-- ✅ 70+ audio features per file
-- ✅ Automatic classification (voice/music types)
-- ✅ Dataset creation (CSV format)
-- ✅ Statistical analysis and visualization
-- ✅ ML-ready data pipeline
+## 🎯 Learning Objectives
+- Automate audio file processing
+- Handle multiple formats and operations
+- Implement efficient batch operations
+- Build scalable processing systems
 
-## Usage
+## 🔧 Key Features
+- **Multi-format Support**: WAV, MP3, FLAC processing
+- **Batch Operations**: Process multiple files simultaneously
+- **Format Conversion**: Automated file format conversion
+- **Progress Tracking**: Real-time batch processing status
+
+## 🚀 Quick Start
 ```bash
 python batch_processor.py
+# Process entire directories
+# Automated format conversion and analysis
