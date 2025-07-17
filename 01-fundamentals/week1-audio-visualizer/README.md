@@ -1,17 +1,21 @@
-# Week 1: Audio Feature Visualizer
+# 🎵 Week 1: Audio Visualizer
 
-## Overview
-First project in my Audio AI journey. Comprehensive audio analysis tool using librosa to visualize and extract features from audio files.
+**Real-time audio analysis and visualization fundamentals**
 
-## Features
-- Waveform visualization
-- Spectrogram analysis  
-- Mel-spectrogram representation
-- MFCC extraction
-- Chroma features
-- Tempo estimation
-- Statistical analysis
+## 🎯 Learning Objectives
+- Master audio signal fundamentals
+- Understand FFT and frequency analysis
+- Create real-time audio visualizations
+- Build foundation for all audio AI projects
 
-## Installation
+## 🔧 Key Features
+- **Real-time Waveform Display**: Live audio visualization
+- **Spectogram Generation**: Frequency analysis over time
+- **FFT Analysis**: Frequency domain processing
+- **Audio File Support**: Multiple format handling
+
+## 🚀 Quick Start
 ```bash
-pip install -r requirements.txt
+python audio_visualizer.py
+# Load audio file or use microphone input
+# Real-time visualization with multiple display modes
