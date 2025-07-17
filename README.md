@@ -176,16 +176,18 @@
 ### **Primary Target Markets**
 - **RAI Teche** - National broadcasting archives (€4.8M+ opportunity)
 - **MAXXI** - National Museum of Contemporary Arts (€1.5M market)
+- **Triennale di Milano** - Design and contemporary culture (€800K+ potential)
 - **Teatro dell'Opera di Roma** - Premier opera house (€400K potential)
 - **Biblioteca Nazionale Centrale** - National library (€2.5M heritage)
 - **Conservatorio di Santa Cecilia** - Music education (€348K tools)
 
 ### **Market Segments**
-- 🏛️ **Museums & Galleries**: 50+ institutions, interactive experiences
+- 🏛️ **Museums & Galleries**: 50+ institutions (MAXXI, Triennale, Capitolini)
 - 📻 **Broadcasting & Media**: RAI + regional, archive processing
 - 🎭 **Live Performance**: 20+ venues, real-time optimization
 - 🎼 **Music Education**: 25+ conservatori, creative tools
 - 📚 **Libraries & Archives**: 100+ collections, heritage digitization
+- 🎨 **Design & Contemporary**: Triennale, design museums, cultural innovation
 
 ---
 
