@@ -42,7 +42,7 @@
 - **Time Investment**: 240+ hours structured learning
 
 ### 🔗 PROFESSIONAL LINKS
-- **LinkedIn**: [Update with Audio AI Engineer title]
+- **LinkedIn**: linkedin.com/in/mainenti
 - **Website**: mainenti.net
 - **Contact**: oggettosonoro@gmail.com
 
