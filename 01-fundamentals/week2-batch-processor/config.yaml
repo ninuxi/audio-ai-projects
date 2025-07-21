@@ -1,0 +1,169 @@
+# Week 2: Batch Audio Processor - Configuration Settings
+# =====================================================
+
+# Audio Processing Settings
+audio:
+  sample_rate: 22050          # Target sample rate for analysis
+  supported_formats:           # Supported audio file formats
+    - ".wav"
+    - ".mp3" 
+    - ".flac"
+    - ".aiff"
+    - ".m4a"
+  max_duration: 300           # Maximum duration in seconds (5 minutes)
+  normalize_audio: true       # Normalize audio levels
+
+# Feature Extraction Configuration
+features:
+  # MFCC Settings
+  mfcc:
+    n_mfcc: 13                # Number of MFCC coefficients
+    n_fft: 2048               # FFT window size
+    hop_length: 512           # Hop length for analysis
+    
+  # Spectral Features
+  spectral:
+    n_fft: 2048
+    hop_length: 512
+    
+  # Chroma Features  
+  chroma:
+    n_chroma: 12
+    
+  # Rhythm Features
+  rhythm:
+    tempo_estimation: true
+    beat_tracking: true
+    onset_detection: true
+
+# Batch Processing Settings
+batch:
+  max_workers: 4              # Number of parallel processing threads
+  chunk_size: 10              # Number of files per processing chunk
+  memory_limit_mb: 1024       # Memory limit per worker
+  timeout_seconds: 60         # Timeout for single file processing
+  
+# Output Configuration
+output:
+  # Dataset Export
+  dataset:
+    format: "csv"             # csv, json, pickle
+    include_metadata: true
+    normalize_features: true
+    
+  # File Organization
+  files:
+    create_backups: true
+    organize_by_date: false
+    organize_by_genre: true
+    
+  # Visualization
+  visualization:
+    create_plots: true
+    plot_format: "png"        # png, pdf, svg
+    plot_dpi: 150
+    
+# Classification Settings
+classification:
+  # Content Type Detection
+  content_detection:
+    enable: true
+    confidence_threshold: 0.7
+    
+  # Genre Classification
+  genre_classification:
+    enable: true
+    categories:
+      - "classical"
+      - "jazz" 
+      - "pop"
+      - "rock"
+      - "electronic"
+      - "folk"
+      - "speech"
+      - "ambient"
+      
+# Quality Control
+quality:
+  # Audio Quality Checks
+  audio_quality:
+    min_duration: 1.0         # Minimum duration in seconds
+    max_silence: 0.8          # Maximum silence ratio (80%)
+    min_snr_db: 10           # Minimum signal-to-noise ratio
+    
+  # Processing Quality
+  processing:
+    retry_failed: true
+    max_retries: 3
+    log_level: "INFO"         # DEBUG, INFO, WARNING, ERROR
+    
+# Machine Learning Pipeline
+ml_pipeline:
+  # Feature Preprocessing
+  preprocessing:
+    scale_features: true
+    remove_outliers: true
+    feature_selection: true
+    
+  # Model Training
+  training:
+    test_size: 0.2           # Train/test split ratio
+    random_state: 42
+    cross_validation: 5       # K-fold CV
+    
+# Reporting Configuration
+reporting:
+  # Analysis Reports
+  generate_reports: true
+  report_format: "html"       # html, pdf, markdown
+  
+  # Statistics
+  include_statistics: true
+  create_visualizations: true
+  
+  # Performance Metrics
+  performance_metrics:
+    processing_speed: true
+    memory_usage: true
+    accuracy_metrics: true
+
+# Advanced Settings
+advanced:
+  # Caching
+  enable_caching: true
+  cache_location: "./cache"
+  
+  # Debugging
+  debug_mode: false
+  save_intermediate: false
+  
+  # Integration
+  database:
+    enable: false
+    connection_string: ""
+    
+  # Cloud Storage
+  cloud_storage:
+    enable: false
+    provider: "aws"           # aws, gcp, azure
+    bucket_name: ""
+
+# Professional Settings for Enterprise Use
+enterprise:
+  # Resource Management
+  resource_limits:
+    max_cpu_percent: 80
+    max_memory_percent: 70
+    max_disk_usage_gb: 10
+    
+  # Monitoring
+  monitoring:
+    enable_metrics: true
+    metrics_interval: 60      # seconds
+    health_checks: true
+    
+  # Security
+  security:
+    encrypt_outputs: false
+    secure_temp_files: true
+    audit_logging: true
