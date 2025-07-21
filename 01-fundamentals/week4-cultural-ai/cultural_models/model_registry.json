@@ -1,0 +1,298 @@
+{
+  "model_registry": {
+    "version": "1.0.0",
+    "last_updated": "2025-07-21T16:00:00Z",
+    "description": "Registry of trained cultural heritage classification models"
+  },
+  
+  "models": {
+    "heritage_classifier_v1": {
+      "file": "pretrained/heritage_classifier_v1.pkl",
+      "name": "Heritage Classifier v1.0",
+      "description": "Primary cultural heritage content classifier",
+      "version": "1.0.0",
+      "created_date": "2025-07-20T10:30:00Z",
+      "model_type": "random_forest",
+      "categories": [
+        "folk_music",
+        "classical_music", 
+        "opera",
+        "spoken_word",
+        "historical_speeches",
+        "traditional_stories",
+        "religious_chants",
+        "regional_dialects",
+        "instrumental_traditional",
+        "contemporary_cultural"
+      ],
+      "performance": {
+        "accuracy": 0.873,
+        "precision": 0.871,
+        "recall": 0.875,
+        "f1_score": 0.872,
+        "cross_validation": {
+          "mean": 0.869,
+          "std": 0.012,
+          "folds": 5
+        }
+      },
+      "training_data": {
+        "samples": 5247,
+        "features": 87,
+        "balanced": true,
+        "sources": ["rai_archive", "regional_archives", "digitization_projects"]
+      },
+      "requirements": {
+        "python_version": ">=3.8",
+        "scikit_learn": ">=1.0.0",
+        "librosa": ">=0.9.0",
+        "numpy": ">=1.21.0"
+      },
+      "size_mb": 15.2,
+      "status": "production"
+    },
+    
+    "genre_classifier_v1": {
+      "file": "pretrained/genre_classifier_v1.pkl",
+      "name": "Musical Genre Classifier v1.0", 
+      "description": "Detailed classification of traditional musical genres",
+      "version": "1.0.0",
+      "created_date": "2025-07-18T14:15:00Z",
+      "model_type": "svm",
+      "categories": [
+        "ballata_tradizionale",
+        "stornello",
+        "serenata",
+        "tarantella",
+        "opera_seria",
+        "opera_buffa",
+        "madrigale",
+        "canzone_napoletana",
+        "musica_sacra",
+        "musica_popolare_alpina",
+        "canto_gregoriano",
+        "laude_spirituali",
+        "musica_da_camera",
+        "sinfonia_classica",
+        "concerto_barocco"
+      ],
+      "performance": {
+        "accuracy": 0.821,
+        "precision": 0.818,
+        "recall": 0.823,
+        "f1_score": 0.819
+      },
+      "training_data": {
+        "samples": 3892,
+        "features": 64,
+        "balanced": true
+      },
+      "size_mb": 8.7,
+      "status": "production"
+    },
+    
+    "period_classifier_v1": {
+      "file": "pretrained/period_classifier_v1.pkl",
+      "name": "Historical Period Classifier v1.0",
+      "description": "Classification of musical historical periods",
+      "version": "1.0.0", 
+      "created_date": "2025-07-19T09:45:00Z",
+      "model_type": "random_forest",
+      "categories": [
+        "medieval",
+        "renaissance", 
+        "baroque",
+        "classical",
+        "romantic",
+        "modern",
+        "contemporary"
+      ],
+      "performance": {
+        "accuracy": 0.798,
+        "precision": 0.795,
+        "recall": 0.801,
+        "f1_score": 0.797
+      },
+      "training_data": {
+        "samples": 2156,
+        "features": 72,
+        "temporal_range": "800-2000 CE"
+      },
+      "size_mb": 6.3,
+      "status": "production"
+    },
+    
+    "instrument_classifier_v1": {
+      "file": "pretrained/instrument_classifier_v1.pkl", 
+      "name": "Traditional Instrument Classifier v1.0",
+      "description": "Recognition of traditional Italian and European instruments",
+      "version": "1.0.0",
+      "created_date": "2025-07-17T16:20:00Z",
+      "model_type": "random_forest",
+      "categories": [
+        "pianoforte",
+        "violino", 
+        "violoncello",
+        "chitarra_classica",
+        "mandolino",
+        "fisarmonica",
+        "organetto",
+        "flauto_traverso",
+        "oboe",
+        "corno",
+        "tromba",
+        "timpani",
+        "voce_soprano",
+        "voce_tenore",
+        "voce_baritono",
+        "coro_misto",
+        "orchestra_completa"
+      ],
+      "performance": {
+        "accuracy": 0.912,
+        "precision": 0.908,
+        "recall": 0.915,
+        "f1_score": 0.911
+      },
+      "training_data": {
+        "samples": 7834,
+        "features": 95,
+        "solo_vs_ensemble": "both"
+      },
+      "size_mb": 12.8,
+      "status": "production"
+    }
+  },
+  
+  "experimental_models": {
+    "dialect_classifier_v0_9": {
+      "file": "experimental/dialect_classifier_v0_9.pkl",
+      "name": "Regional Dialect Classifier v0.9",
+      "description": "Classification of Italian regional dialects in speech",
+      "version": "0.9.0",
+      "status": "beta",
+      "categories": [
+        "veneto",
+        "lombardo",
+        "piemontese", 
+        "ligure",
+        "toscano",
+        "romano",
+        "napoletano",
+        "siciliano",
+        "sardo"
+      ],
+      "performance": {
+        "accuracy": 0.743,
+        "note": "Under development - accuracy improving"
+      },
+      "size_mb": 9.1
+    },
+    
+    "emotion_classifier_v0_8": {
+      "file": "experimental/emotion_classifier_v0_8.pkl",
+      "name": "Musical Emotion Classifier v0.8",
+      "description": "Classification of emotional content in traditional music",
+      "version": "0.8.0", 
+      "status": "experimental",
+      "categories": [
+        "gioioso",
+        "malinconico",
+        "solenne",
+        "festivo",
+        "contemplativo",
+        "drammatico"
+      ],
+      "performance": {
+        "accuracy": 0.681,
+        "note": "Subjective task - lower baseline accuracy expected"
+      },
+      "size_mb": 7.4
+    }
+  },
+  
+  "deprecated_models": {
+    "heritage_classifier_v0_9": {
+      "file": "deprecated/heritage_classifier_v0_9.pkl",
+      "name": "Heritage Classifier v0.9 (Deprecated)",
+      "description": "Previous version - use v1.0 instead",
+      "version": "0.9.0",
+      "status": "deprecated",
+      "deprecated_date": "2025-07-20T00:00:00Z",
+      "replacement": "heritage_classifier_v1"
+    }
+  },
+  
+  "training_configurations": {
+    "default_heritage": {
+      "model_type": "random_forest",
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 10,
+        "min_samples_split": 5,
+        "min_samples_leaf": 2,
+        "random_state": 42
+      },
+      "feature_extraction": {
+        "sample_rate": 22050,
+        "n_mfcc": 13,
+        "n_mels": 40,
+        "hop_length": 512,
+        "n_fft": 2048
+      },
+      "validation": {
+        "test_size": 0.2,
+        "cross_validation_folds": 5,
+        "stratified": true
+      }
+    },
+    
+    "svm_genre": {
+      "model_type": "svm",
+      "parameters": {
+        "C": 1.0,
+        "kernel": "rbf",
+        "gamma": "scale",
+        "probability": true
+      },
+      "preprocessing": {
+        "scaling": "standard_scaler",
+        "feature_selection": "pca",
+        "pca_components": 50
+      }
+    }
+  },
+  
+  "evaluation_metrics": {
+    "primary_metrics": ["accuracy", "precision", "recall", "f1_score"],
+    "secondary_metrics": ["confusion_matrix", "roc_auc", "cross_validation"],
+    "cultural_metrics": ["cultural_balance", "regional_representation", "temporal_coverage"],
+    "quality_thresholds": {
+      "production_accuracy": 0.8,
+      "beta_accuracy": 0.7,
+      "experimental_accuracy": 0.6
+    }
+  },
+  
+  "deployment_info": {
+    "current_production": "heritage_classifier_v1",
+    "recommended_models": [
+      "heritage_classifier_v1",
+      "genre_classifier_v1", 
+      "instrument_classifier_v1"
+    ],
+    "integration_examples": {
+      "python_api": "heritage_classifier.py --model cultural_models/pretrained/heritage_classifier_v1.pkl",
+      "batch_processing": "python metadata_generator.py --models cultural_models/model_registry.json",
+      "rai_integration": "python rai_archive_tool.py --classifier heritage_classifier_v1"
+    }
+  },
+  
+  "maintenance": {
+    "update_schedule": "monthly",
+    "retraining_threshold": "accuracy_drop_5_percent",
+    "backup_retention": "6_months",
+    "performance_monitoring": "enabled",
+    "auto_validation": true
+  }
+}
