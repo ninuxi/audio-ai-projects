@@ -1,7 +1,7 @@
 # examples/sample_analysis.py
 """
-🎵 Sample Audio Analysis Examples
-================================
+🎵 Sample Audio Analysis Examples - FIXED VERSION
+================================================
 
 Demonstrate audio feature extraction and visualization
 with different types of audio content.
@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import librosa
 import librosa.display
+import os
 
 def generate_sample_audio():
     """Generate synthetic audio samples for demonstration"""
@@ -75,8 +76,10 @@ def analyze_sample(audio, sr, title):
 def create_comparison_visualization():
     """Create visualization comparing different audio types"""
     
+    print("🎵 Generating synthetic audio samples...")
     samples, sr = generate_sample_audio()
     
+    print("📊 Creating visualization...")
     fig, axes = plt.subplots(2, 2, figsize=(15, 10))
     fig.suptitle('Audio Feature Analysis Comparison', fontsize=16)
     
@@ -101,23 +104,96 @@ def create_comparison_visualization():
         analyze_sample(audio, sr, name)
     
     plt.tight_layout()
-    plt.savefig('examples/audio_comparison.png', dpi=150, bbox_inches='tight')
-    print(f"\n💾 Visualization saved: examples/audio_comparison.png")
+    
+    # CORREZIONE: Assicurati che la directory examples esista
+    print("📁 Creating examples directory...")
+    os.makedirs('examples', exist_ok=True)
+    
+    # Salva il grafico
+    output_path = 'examples/audio_comparison.png'
+    print(f"💾 Saving visualization to: {output_path}")
+    
+    try:
+        plt.savefig(output_path, dpi=150, bbox_inches='tight')
+        print(f"✅ Visualization saved successfully!")
+    except Exception as e:
+        print(f"❌ Error saving visualization: {e}")
+        print("💡 Trying alternative path...")
+        # Fallback: salva nella directory corrente
+        fallback_path = 'audio_comparison.png'
+        plt.savefig(fallback_path, dpi=150, bbox_inches='tight')
+        print(f"✅ Saved to current directory: {fallback_path}")
+    
+    # Mostra il grafico
+    print("🖼️ Displaying visualization...")
+    plt.show()
     
     return samples, sr
 
+def save_sample_audio_files():
+    """Save sample audio as WAV files for testing"""
+    
+    print("\n🎵 Generating sample audio files...")
+    samples, sr = generate_sample_audio()
+    
+    # Assicurati che la directory esista
+    os.makedirs('examples', exist_ok=True)
+    
+    try:
+        import soundfile as sf
+        
+        for name, audio in samples.items():
+            filename = f'examples/sample_{name}.wav'
+            sf.write(filename, audio, sr)
+            print(f"✅ Saved: {filename}")
+            
+    except ImportError:
+        print("⚠️ soundfile not available - using scipy.io.wavfile")
+        try:
+            from scipy.io import wavfile
+            
+            for name, audio in samples.items():
+                filename = f'examples/sample_{name}.wav'
+                # Normalize to 16-bit range
+                audio_int16 = (audio * 32767).astype(np.int16)
+                wavfile.write(filename, sr, audio_int16)
+                print(f"✅ Saved: {filename}")
+                
+        except ImportError:
+            print("❌ Cannot save audio files - install soundfile or scipy")
+
+def run_complete_demo():
+    """Run complete demonstration"""
+    
+    print("🎵 AUDIO ANALYSIS EXAMPLES - COMPLETE DEMO")
+    print("=" * 50)
+    
+    # Check current directory
+    print(f"📍 Current directory: {os.getcwd()}")
+    print(f"📁 Directory contents: {os.listdir('.')}")
+    
+    try:
+        # Generate and analyze samples
+        samples, sr = create_comparison_visualization()
+        
+        # Save sample audio files
+        save_sample_audio_files()
+        
+        print(f"\n🎯 COMPARISON SUMMARY:")
+        print("- Pure tone: Clean sinusoid, low ZCR")
+        print("- Musical chord: Complex harmonics, mid ZCR") 
+        print("- Speech-like: Formant structure, high ZCR")
+        print("- White noise: Random, very high ZCR")
+        
+        print(f"\n📊 Use these examples to understand how different")
+        print("audio types produce different feature patterns!")
+        
+        print(f"\n✅ Demo completed successfully!")
+        
+    except Exception as e:
+        print(f"❌ Demo failed: {e}")
+        print("💡 Make sure you have librosa and matplotlib installed:")
+        print("   pip install librosa matplotlib")
+
 if __name__ == "__main__":
-    print("🎵 AUDIO ANALYSIS EXAMPLES")
-    print("=" * 40)
-    
-    # Generate and analyze samples
-    samples, sr = create_comparison_visualization()
-    
-    print(f"\n🎯 COMPARISON SUMMARY:")
-    print("- Pure tone: Clean sinusoid, low ZCR")
-    print("- Musical chord: Complex harmonics, mid ZCR") 
-    print("- Speech-like: Formant structure, high ZCR")
-    print("- White noise: Random, very high ZCR")
-    
-    print(f"\n📊 Use these examples to understand how different")
-    print("audio types produce different feature patterns!")
+    run_complete_demo()
