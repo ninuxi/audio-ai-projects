@@ -1,0 +1,38 @@
+{
+  "call_id": "DEMO_001",
+  "duration": 120.5,
+  "speakers_detected": 2,
+  "voice_activity": {
+    "total_speech_time": 98.2,
+    "silence_time": 22.3,
+    "speech_ratio": 0.815
+  },
+  "speaker_analysis": {
+    "Speaker_0": {
+      "role": "Agent",
+      "speaking_time": 45.8,
+      "speaking_percentage": 46.6,
+      "average_pitch": 185.2,
+      "speech_rate": "normal"
+    },
+    "Speaker_1": {
+      "role": "Customer", 
+      "speaking_time": 52.4,
+      "speaking_percentage": 53.4,
+      "average_pitch": 145.7,
+      "speech_rate": "normal"
+    }
+  },
+  "quality_metrics": {
+    "overall_score": 8.2,
+    "audio_clarity": 8.5,
+    "background_noise": 7.8,
+    "speaker_separation": 8.9
+  },
+  "insights": [
+    "Customer spoke 53% of the time - good engagement",
+    "Clear speaker separation detected",
+    "Low background noise levels",
+    "Normal speech rate for both participants"
+  ]
+}
