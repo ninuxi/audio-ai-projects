@@ -46,3 +46,28 @@ AI-powered platform for cultural content analysis and heritage preservation appl
 - Educational content enhancement
 
 **Status**: Specialized cultural heritage AI platform
+
+
+## 🎭 RAI Archive Integration
+
+This project includes a powerful integration with **RAI Archive Tool** (`rai-archive-tool/rai_archive_tool.py`), providing specialized functionality for processing and analyzing RAI Teche audio content.
+
+### Key Features of RAI Archive Tool:
+- 📚 **Automated cataloging** of RAI historical recordings
+- 🔍 **Advanced search** and filtering capabilities  
+- 🏷️ **Intelligent tagging** using cultural AI models
+- 📊 **Metadata enrichment** for archival standards
+- 🎵 **Audio analysis** optimized for broadcast content
+
+### Integration Example:
+```python
+from rai_archive_tool import RAIArchiveTool
+from heritage_classifier import HeritageClassifier
+
+# Initialize tools
+rai_tool = RAIArchiveTool()
+classifier = HeritageClassifier()
+classifier.load_model('cultural_models/pretrained/heritage_classifier_v1.pkl')
+
+# Process RAI archive
+results = rai_tool.process_with_classifier(classifier)
