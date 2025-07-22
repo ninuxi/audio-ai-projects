@@ -1,9 +1,9 @@
 # Audio AI Fundamentals
 
-![CI/CD Pipeline](https://github.com/TUO_USERNAME/TUO_REPO/workflows/CI/CD%20Pipeline/badge.svg)
-![Coverage](https://codecov.io/gh/TUO_USERNAME/TUO_REPO/branch/main/graph/badge.svg)
+![CI/CD Pipeline](https://github.com/ninuxi/audio-ai-projects/workflows/CI/CD%20Pipeline/badge.svg)
+![Coverage](https://codecov.io/gh/ninuxi/audio-ai-projects/branch/main/graph/badge.svg)
 ![Python Version](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11-blue)
-![License](https://img.shields.io/github/license/TUO_USERNAME/TUO_REPO)
+![License](https://img.shields.io/github/license/ninuxi/audio-ai-projects)
 # Audio AI Engineer Portfolio
 ## Cultural Heritage & Enterprise Audio Solutions
 
