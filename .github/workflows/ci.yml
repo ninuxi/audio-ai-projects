@@ -1,5 +1,5 @@
 # Workflow semplificato per GitHub Actions
-name: CI
+name: CI/CD Pipeline
 
 # Trigger del workflow
 on:
