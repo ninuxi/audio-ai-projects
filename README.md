@@ -1,6 +1,6 @@
 # Audio AI Fundamentals
 
-![CI/CD Pipeline](https://github.com/ninuxi/audio-ai-projects/workflows/CI/CD%20Pipeline/badge.svg)
+![CI](https://github.com/ninuxi/audio-ai-projects/workflows/CI/badge.svg)
 ![Coverage](https://codecov.io/gh/ninuxi/audio-ai-projects/branch/main/graph/badge.svg)
 ![Python Version](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11-blue)
 ![License](https://img.shields.io/github/license/ninuxi/audio-ai-projects)
