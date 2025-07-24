@@ -159,9 +159,9 @@ git push origin feature/new-functionality
 ## 🌟 Community
 
 - **🐙 GitHub**: [@ninuxi](https://github.com/ninuxi)
-- **💼 LinkedIn**: [(https://www.linkedin.com/in/mainenti/)]
-- **📧 Email**: [oggettosonoro@gmail.com]
-- **🌐 Website**: [(https://www.mainenti.net/)]
+- **💼 LinkedIn**: (https://www.linkedin.com/in/mainenti/)
+- **📧 Email**: oggettosonoro@gmail.com
+- **🌐 Website**: (https://www.mainenti.net/)
 
 ## 📞 Business Opportunities
 
