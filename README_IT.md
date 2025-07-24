@@ -24,7 +24,7 @@
 - **MAXXI** - Museo nazionale delle arti del XXI secolo
 - **Biblioteche Nazionali** - Conservazione registrazioni storiche
 - **Musei** - Collezioni audio e installazioni interattive
-- **Archivi Storici** - Preservazione patrimonio sonoro
+- **Archivi Storici** - Preservare il patrimonio sonoro
 
 ---
 
@@ -81,13 +81,13 @@
 
 ---
 
-### **Settimana 4: AI Culturale** 🏛️
+### **Settimana 4: AI per la Cultura** 🏛️
 **Posizione**: `week4-cultural-ai/`
 
 **Obiettivi**:
 - Analisi contenuti culturali
-- Algoritmi specifici per patrimonio
-- Sistemi di classificazione culturale
+- Algoritmi specifici per il patrimonio
+- Sistemi di classificazione 
 
 **Competenze Chiave**:
 - Categorizzazione contenuti culturali
@@ -103,8 +103,8 @@
 **Posizione**: `week5-production/`
 
 **Obiettivi**:
-- Trasformare prototipi in codice production
-- Implementare gestione errori enterprise
+- Trasformare prototipi in codice di produzione
+- Implementare la gestione di errori enterprise
 - Creare sistemi deployment-ready
 
 **Competenze Chiave**:
@@ -171,7 +171,6 @@
 - Conoscenza base Python
 - Comprensione concetti audio
 - Interesse per il patrimonio culturale
-- Impegno per programma intensivo 6 settimane
 
 ### **Setup**
 ```bash
@@ -215,7 +214,7 @@ python audio_visualizer.py
 - **Risparmio**: €120K in costi operativi
 
 ### **MAXXI - Sistema Interattivo**
-- **Installazione**: "Voci del Contemporaneo"
+- **Installazione**: "Voci del Risveglio"
 - **Visitatori**: 50.000+ interazioni
 - **Performance**: <100ms latenza
 - **Feedback**: 4.8/5 soddisfazione visitatori
