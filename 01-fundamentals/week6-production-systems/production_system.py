@@ -1,3 +1,9 @@
+"""
+Audio AI Projects - Advanced Audio Processing System
+Copyright (c) 2025 Antonino Mainenti (ninuxi)
+Licensed under MIT License - see LICENSE file
+GitHub: https://github.com/ninuxi/audio-ai-projects
+"""
 # 🏭 Week 5: Production Audio AI System
 # Enterprise-grade audio processing with monitoring, logging, and scalability
 
