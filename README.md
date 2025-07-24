@@ -6,7 +6,7 @@
 ![Stars](https://img.shields.io/github/stars/ninuxi/audio-ai-projects)
 ![Forks](https://img.shields.io/github/forks/ninuxi/audio-ai-projects)
 
-> **🇮🇹 [Versione Italiana](README_IT.md)** | **🇪🇸 [Versión Española](README_ES.md)** | **🇫🇷 [Version Française](README_FR.md)**
+> **🇮🇹 [Versione Italiana](README_IT.md)** | 
 
 ## 🎯 Enterprise-Grade AI Systems for Audio Analysis & Cultural Heritage
 
@@ -159,9 +159,9 @@ git push origin feature/new-functionality
 ## 🌟 Community
 
 - **🐙 GitHub**: [@ninuxi](https://github.com/ninuxi)
-- **💼 LinkedIn**: [Your LinkedIn Profile]
-- **📧 Email**: [your.email@domain.com]
-- **🌐 Website**: [Your Website]
+- **💼 LinkedIn**: [(https://www.linkedin.com/in/mainenti/)]
+- **📧 Email**: [oggettosonoro@gmail.com]
+- **🌐 Website**: [(https://www.mainenti.net/)]
 
 ## 📞 Business Opportunities
 
