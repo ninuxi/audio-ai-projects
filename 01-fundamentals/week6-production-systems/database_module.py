@@ -1,4 +1,10 @@
 """
+Audio AI Projects - Advanced Audio Processing System
+Copyright (c) 2025 Antonino Mainenti (ninuxi)
+Licensed under MIT License - see LICENSE file
+GitHub: https://github.com/ninuxi/audio-ai-projects
+"""
+"""
 Database Module
 ==============
 
