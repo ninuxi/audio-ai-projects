@@ -1,3 +1,9 @@
+"""
+Audio AI Projects - Advanced Audio Processing System
+Copyright (c) 2025 Antonino Mainenti (ninuxi)
+Licensed under MIT License - see LICENSE file
+GitHub: https://github.com/ninuxi/audio-ai-projects
+"""
 # 🏛️ Audio Heritage Digitization System - FIXED VERSION
 # Target: RAI Teche, Archivi musicali, Musei, Biblioteche
 
