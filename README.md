@@ -138,7 +138,7 @@ Project **developed in Italy** with specific focus on:
 - **Italian cultural heritage** and musical traditions
 - **Integration with institutions** like RAI, MAXXI, Triennale
 - **Compliance** with Italian and European regulations (GDPR)
-- **Multilingual support** Italian/English/Spanish/French
+- **Multilingual support** Italian/English
 
 ## 🤝 Contributing
 
@@ -193,4 +193,4 @@ Interested in integrating these systems into your cultural institution?
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2025 [Your Name]. Made with ❤️ in Italy.
+Copyright (c) 2025 [Your Name]. Made with ❤️
