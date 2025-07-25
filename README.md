@@ -193,4 +193,4 @@ Interested in integrating these systems into your cultural institution?
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2025 [Antonio Mainenti]. Made with ❤️
+Copyright (c) 2025 Antonio Mainenti. Made with ❤️
