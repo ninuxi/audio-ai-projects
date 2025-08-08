@@ -12,7 +12,7 @@
 
 **Piattaforma avanzata di intelligenza artificiale** per l'elaborazione audio, specializzata in applicazioni per **beni culturali italiani** e **architetture enterprise production-ready**.
 
-Sviluppato in Italia 🇮🇹 per la preservazione culturale globale e la trasformazione digitale.
+Sviluppato per la preservazione culturale globale e la trasformazione digitale.
 
 ### ⭐ Caratteristiche Principali
 
@@ -132,9 +132,9 @@ python production_audio_system.py
 - **Pandas + NumPy** - Elaborazione dati
 - **Matplotlib + Seaborn** - Visualizzazione dati
 
-## 🏆 Made in Italy per la Preservazione Culturale Globale
+## 🏆 Pensato per la Preservazione Culturale Globale
 
-Progetto **sviluppato in Italia** con focus specifico su:
+Progetto sviluppato con focus specifico su:
 - **Patrimonio culturale italiano** e tradizioni musicali
 - **Integrazione con istituzioni** come RAI, MAXXI, Triennale
 - **Compliance** con normative italiane ed europee (GDPR)
