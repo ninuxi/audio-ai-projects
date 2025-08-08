@@ -1,0 +1,43 @@
+2025-07-22 09:06:01,542 - ProductionAudioProcessor - INFO - Logging system initialized
+2025-07-22 09:06:01,546 - ProductionAudioProcessor - INFO - Database initialized: production_jobs.db
+2025-07-22 09:06:01,548 - ProductionAudioProcessor - WARNING - Redis not available, using memory cache
+2025-07-22 09:06:01,548 - ProductionAudioProcessor - INFO - ProductionAudioProcessor initialized
+2025-07-22 09:06:01,548 - ProductionAudioProcessor - INFO - Worker worker-0 started
+2025-07-22 09:06:01,548 - ProductionAudioProcessor - INFO - Worker worker-1 started
+2025-07-22 09:06:01,548 - ProductionAudioProcessor - INFO - Processing system started with 2 workers
+2025-07-22 09:06:01,548 - ProductionAudioProcessor - INFO - Stopping processing system...
+2025-07-22 09:06:02,552 - ProductionAudioProcessor - INFO - Worker worker-0 stopped
+2025-07-22 09:06:02,553 - ProductionAudioProcessor - INFO - Worker worker-1 stopped
+2025-07-22 09:06:02,555 - ProductionAudioProcessor - INFO - Processing system stopped
+2025-07-22 09:12:44,111 - ProductionAudioProcessor - INFO - Logging system initialized
+2025-07-22 09:12:44,112 - ProductionAudioProcessor - INFO - Database initialized: production_jobs.db
+2025-07-22 09:12:44,114 - ProductionAudioProcessor - WARNING - Redis not available, using memory cache
+2025-07-22 09:12:44,114 - ProductionAudioProcessor - INFO - ProductionAudioProcessor initialized
+2025-07-22 09:12:44,114 - ProductionAudioProcessor - INFO - Worker worker-0 started
+2025-07-22 09:12:44,114 - ProductionAudioProcessor - INFO - Worker worker-1 started
+2025-07-22 09:12:44,114 - ProductionAudioProcessor - INFO - Processing system started with 2 workers
+2025-07-22 09:12:44,116 - ProductionAudioProcessor - INFO - Worker worker-0 processing job 5a262b9db4838f8c
+2025-07-22 09:12:44,117 - ProductionAudioProcessor - INFO - Job added: 5a262b9db4838f8c - feature_extraction - data/tremo.wav
+2025-07-22 09:12:44,117 - ProductionAudioProcessor - INFO - Worker worker-1 processing job 67cb5e35d1057595
+2025-07-22 09:12:44,118 - ProductionAudioProcessor - INFO - Job added: 67cb5e35d1057595 - quality_analysis - data/voce_silenzi.wav
+2025-07-22 09:12:44,123 - ProductionAudioProcessor - INFO - Job added: e169838d55d1f3ab - classification - data/breath_io.wav
+2025-07-22 09:12:45,142 - ProductionAudioProcessor - INFO - Job 67cb5e35d1057595 completed in 1.03s
+2025-07-22 09:12:45,145 - ProductionAudioProcessor - INFO - Worker worker-1 processing job e169838d55d1f3ab
+2025-07-22 09:12:45,167 - ProductionAudioProcessor - INFO - Job e169838d55d1f3ab completed in 0.02s
+2025-07-22 09:12:48,304 - ProductionAudioProcessor - INFO - Job 5a262b9db4838f8c completed in 4.19s
+2025-07-22 09:23:26,754 - ProductionAudioProcessor - INFO - Logging system initialized
+2025-07-22 09:23:26,754 - ProductionAudioProcessor - INFO - Database initialized: production_jobs.db
+2025-07-22 09:23:26,757 - ProductionAudioProcessor - WARNING - Redis not available, using memory cache
+2025-07-22 09:23:26,757 - ProductionAudioProcessor - INFO - ProductionAudioProcessor initialized
+2025-07-22 09:23:26,757 - ProductionAudioProcessor - INFO - Worker worker-0 started
+2025-07-22 09:23:26,757 - ProductionAudioProcessor - INFO - Worker worker-1 started
+2025-07-22 09:23:26,758 - ProductionAudioProcessor - INFO - Processing system started with 2 workers
+2025-07-22 09:23:26,759 - ProductionAudioProcessor - INFO - Job added: 750b2b79ebfb83c2 - feature_extraction - data/tremo.wav
+2025-07-22 09:23:26,760 - ProductionAudioProcessor - INFO - Worker worker-0 processing job 750b2b79ebfb83c2
+2025-07-22 09:23:26,761 - ProductionAudioProcessor - INFO - Job added: a8f3960b4feedffc - quality_analysis - data/voce_silenzi.wav
+2025-07-22 09:23:26,766 - ProductionAudioProcessor - INFO - Worker worker-1 processing job a8f3960b4feedffc
+2025-07-22 09:23:26,767 - ProductionAudioProcessor - INFO - Job added: 0b45f3f90a652414 - classification - data/breath_io.wav
+2025-07-22 09:23:27,651 - ProductionAudioProcessor - INFO - Job a8f3960b4feedffc completed in 0.88s
+2025-07-22 09:23:27,653 - ProductionAudioProcessor - INFO - Worker worker-1 processing job 0b45f3f90a652414
+2025-07-22 09:23:27,673 - ProductionAudioProcessor - INFO - Job 0b45f3f90a652414 completed in 0.02s
+2025-07-22 09:23:28,145 - ProductionAudioProcessor - INFO - Job 750b2b79ebfb83c2 completed in 1.39s
