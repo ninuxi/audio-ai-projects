@@ -113,7 +113,7 @@ class SpeakerRecognition:
             mfccs = librosa.feature.mfcc(
                 y=audio, 
                 sr=self.sample_rate, 
-                n_mfcc=13  # Demo: Standard MFCC count,
+                n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count  # Demo: Standard MFCC count,
                 n_fft=2048,
                 hop_length=512,
                 n_mels=40

@@ -305,13 +305,13 @@ Demo License: Educational use only
                 # Sostituzioni con regex per pattern più complessi
                 regex_replacements = [
                     # Modelli ML complessi
-                    (r'RandomForestClassifier\(n_estimators=\d{2,}\)', 'RandomForestClassifier(n_estimators=10)  # Demo: Simplified  # Demo: Simplified'),
+                    (r'RandomForestClassifier\(n_estimators=\d{2,}\)', 'RandomForestClassifier(n_estimators=10)  # Demo: Simplified  # Demo: Simplified  # Demo: Simplified  # Demo: Simplified'),
                     (r'RandomForestClassifier  # Demo: Basic model instead of XGB\([^)]+\)', 'RandomForestClassifier(n_estimators=5)  # Demo: Basic model'),
                     (r'\.fit\(X_train,.*complex.*\)', '.fit(X_train, y_train)  # Demo: Basic training'),
                     
                     # Features complesse
                     (r'extract_\w*advanced\w*_features', 'extract_basic_features  # Demo: Limited features'),
-                    (r'n_mfcc=\d{2,}', 'n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count'),
+                    (r'n_mfcc=\d{2,}', 'n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count  # Demo: Standard MFCC count  # Demo: Standard MFCC count'),
                     
                     # Processing enterprise
                     (r'batch_size=\d{3,}', 'batch_size=10  # Demo: Small batches'),

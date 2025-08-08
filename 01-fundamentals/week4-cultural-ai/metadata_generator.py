@@ -243,7 +243,7 @@ class MetadataGenerator:
             }
             
             # Spectral characteristics
-            mfccs = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=13  # Demo: Standard MFCC count)
+            mfccs = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count  # Demo: Standard MFCC count)
             spectral_contrast = librosa.feature.spectral_contrast(y=audio, sr=sr)
             chroma = librosa.feature.chroma_stft(y=audio, sr=sr)
             
@@ -321,7 +321,7 @@ class MetadataGenerator:
         """Detect presence and characteristics of voice/speech"""
         try:
             # Simple voice activity detection based on spectral features
-            mfccs = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=13  # Demo: Standard MFCC count)
+            mfccs = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count  # Demo: Standard MFCC count)
             
             # Voice typically has specific MFCC patterns
             voice_indicators = {

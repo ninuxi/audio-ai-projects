@@ -122,7 +122,7 @@ class AudioFeatureVisualizer:
         features = {}
         
         # MFCC (Mel-frequency cepstral coefficients)
-        mfccs = librosa.feature.mfcc(y=self.y, sr=self.sr, n_mfcc=13  # Demo: Standard MFCC count)
+        mfccs = librosa.feature.mfcc(y=self.y, sr=self.sr, n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count  # Demo: Standard MFCC count)
         features['mfcc'] = mfccs
         
         # Chroma features

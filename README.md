@@ -25,6 +25,42 @@ This repository contains **simplified demonstration versions** of production aud
 - **Cultural Institutions**: €2.5M total addressable market (25+ institutions)
 
 ### 📧 Production System Access:
+**Contact**: audio.ai.engineer@example.com  
+**Subject**: Production System Access Request  
+**Requirements**: NDA signature for full codebase access  
+**Available for**: Enterprise clients and institutional partnerships
+
+---
+
+## 📁 Demo Portfolio Structure
+
+# 🎵 Audio AI Projects - DEMO VERSION
+
+## ⚠️  IMPORTANT: PORTFOLIO DEMONSTRATION
+
+This repository contains **simplified demonstration versions** of production audio AI systems.
+
+### 🔒 What's Different in Demo:
+- **Algorithms**: Basic implementations instead of proprietary advanced methods
+- **AI Models**: Simplified classifiers vs enterprise-grade neural networks
+- **Features**: ~20 basic features vs 200+ advanced features in production
+- **Performance**: Demo-level vs enterprise-optimized processing
+- **Scale**: Single file processing vs enterprise batch systems (1000+ files/hour)
+- **Integration**: Standalone demos vs full enterprise API/database integration
+
+### 🚀 Production Systems Include:
+- **Advanced AI**: Proprietary algorithms for cultural heritage analysis
+- **Enterprise Architecture**: Scalable, production-ready systems
+- **Cultural Specialization**: Italian institution-specific workflows
+- **Business Integration**: Complete ROI analysis and implementation
+- **Professional Support**: 24/7 monitoring, SLA guarantees
+
+### 💼 Proven Business Cases:
+- **RAI Teche Archive**: €4.8M cost savings potential (100,000+ hours)
+- **TIM Call Analytics**: 40% efficiency improvement (2M+ calls/year)
+- **Cultural Institutions**: €2.5M total addressable market (25+ institutions)
+
+### 📧 Production System Access:
 **Contact**: oggettosonoro@gmail.com 
 **Subject**: Production System Access Request  
 **Requirements**: NDA signature for full codebase access  

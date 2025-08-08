@@ -111,7 +111,7 @@ class BatchAudioProcessor:
             }
             
             # MFCC (usa solo la media dei coefficienti)
-            mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13  # Demo: Standard MFCC count)
+            mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count  # Demo: Standard MFCC count)
             for i in range(13):
                 features[f'mfcc_{i}_mean'] = np.mean(mfccs[i])
                 features[f'mfcc_{i}_std'] = np.std(mfccs[i])

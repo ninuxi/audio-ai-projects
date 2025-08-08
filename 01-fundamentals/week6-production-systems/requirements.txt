@@ -11,6 +11,19 @@
 # 🎯 Demo includes basic audio processing capabilities only
 # ========================================
 
+# ========================================
+# AUDIO AI PROJECTS - DEMO REQUIREMENTS
+# ========================================
+#
+# ⚠️  DEMO VERSION DEPENDENCIES
+# Production system requires additional enterprise libraries
+# 
+# 📧 Full requirements available with production system
+# Contact: audio.ai.engineer@example.com
+#
+# 🎯 Demo includes basic audio processing capabilities only
+# ========================================
+
 # Week 6 - Production Systems Requirements
 # Dependencies for cultural heritage digitization system
 

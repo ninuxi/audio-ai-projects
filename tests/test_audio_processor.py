@@ -454,7 +454,7 @@ class TestIntegration:
         assert audio is not None
         
         # Step 2: Extract features
-        mfcc = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=13  # Demo: Standard MFCC count)
+        mfcc = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count  # Demo: Standard MFCC count)
         assert mfcc.shape[0] == 13
         
         # Step 3: Mock classification
