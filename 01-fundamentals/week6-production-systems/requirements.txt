@@ -1,0 +1,58 @@
+# Week 6 - Production Systems Requirements
+# Dependencies for cultural heritage digitization system
+
+# Core audio processing
+librosa>=0.10.0
+scipy>=1.10.0
+numpy>=1.24.0
+soundfile>=0.12.0
+
+# Machine learning and AI
+scikit-learn>=1.3.0
+tensorflow>=2.13.0
+
+# Database support
+sqlite3  # Built-in with Python
+asyncpg>=0.28.0  # PostgreSQL async driver
+pymongo>=4.4.0   # MongoDB driver
+
+# API framework
+fastapi>=0.100.0
+uvicorn>=0.22.0
+pydantic>=2.0.0
+python-multipart>=0.0.6  # For file uploads
+
+# Authentication and security
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+python-dotenv>=1.0.0
+
+# Data processing
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# System monitoring
+psutil>=5.9.0
+redis>=4.6.0  # Optional caching
+
+# Configuration management
+configparser  # Built-in with Python
+toml>=0.10.2
+
+# Logging and monitoring
+structlog>=23.1.0
+prometheus-client>=0.17.0
+
+# File handling
+pathlib  # Built-in with Python
+hashlib  # Built-in with Python
+
+# Testing (development)
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+httpx>=0.24.0  # For API testing
+
+# Documentation (development)
+sphinx>=7.0.0
+sphinx-rtd-theme>=1.3.0

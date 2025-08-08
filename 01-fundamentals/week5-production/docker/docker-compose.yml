@@ -1,0 +1,483 @@
+version: '3.8'
+
+# Production Audio System - Complete Stack
+# Includes all services for production deployment
+# Compatible with MAXXI installation workflows
+
+services:
+  # ==============================================================================
+  # Web Proxy & Load Balancer
+  # ==============================================================================
+  nginx:
+    image: nginx:alpine
+    container_name: audio-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - audio_static:/usr/share/nginx/html/static
+    networks:
+      - audio-ai-network
+    depends_on:
+      - production-audio-system
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+
+  # ==============================================================================
+  # MAXXI Integration Service (Optional)
+  # ==============================================================================
+  maxxi-integration:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: maxxi-integration
+    image: audio-ai/maxxi-integration:latest
+    container_name: audio-maxxi-integration
+    restart: unless-stopped
+    ports:
+      - "8001:8000"  # Alternative port for MAXXI workflows
+    volumes:
+      - audio_data:/app/data
+      - maxxi_outputs:/app/data/maxxi_outputs
+      - maxxi_archive:/app/data/maxxi_archive
+      - ./maxxi-config:/app/maxxi-config:ro
+    environment:
+      - ENVIRONMENT=production
+      - MAXXI_COMPATIBILITY_MODE=true
+      - MAXXI_OUTPUT_FORMAT=json
+      - MAXXI_METADATA_SCHEMA=dublin_core
+      - MAXXI_DATA_DIR=/app/data/maxxi_outputs
+      - MAXXI_ARCHIVE_DIR=/app/data/maxxi_archive
+      - DB_HOST=postgres
+      - REDIS_HOST=redis
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - audio-ai-network
+    profiles:
+      - maxxi  # Only start when maxxi profile is activated
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+
+  # ==============================================================================
+  # File Processing Queue Service
+  # ==============================================================================
+  file-processor:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: production
+    image: audio-ai/production-system:latest
+    container_name: audio-file-processor
+    restart: unless-stopped
+    command: python -c "
+      from production_audio_system import ProductionAudioSystem;
+      from config.settings import get_config;
+      system = ProductionAudioSystem(get_config('production'));
+      system.start_workers(num_workers=4);
+      import time;
+      while True: time.sleep(60)
+      "
+    volumes:
+      - audio_data:/app/data
+      - audio_logs:/app/logs
+      - audio_uploads:/app/uploads
+      - audio_models:/app/cultural_models
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - DB_HOST=postgres
+      - REDIS_HOST=redis
+      - CELERY_BROKER_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - audio-ai-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 3G
+        reservations:
+          cpus: '1.0'
+          memory: 1.5G
+
+# ==============================================================================
+# Networks Configuration
+# ==============================================================================
+networks:
+  audio-ai-network:
+    driver: bridge
+    name: audio-ai-network
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# ==============================================================================
+# Volumes Configuration
+# ==============================================================================
+volumes:
+  # Application data volumes
+  audio_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/data
+  
+  audio_logs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/logs
+  
+  audio_uploads:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/uploads
+  
+  audio_models:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/cultural_models
+  
+  audio_static:
+    driver: local
+  
+  # MAXXI-specific volumes
+  maxxi_outputs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/maxxi_outputs
+  
+  maxxi_archive:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/maxxi_archive
+  
+  # Database volumes
+  postgres_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/postgres_data
+  
+  redis_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/redis_data
+  
+  # Monitoring volumes
+  prometheus_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/prometheus_data
+  
+  grafana_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/grafana_data
+
+# ==============================================================================
+# Development Override (docker-compose.override.yml)
+# ==============================================================================
+  # Main Application Service
+  # ==============================================================================
+  production-audio-system:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: production
+      args:
+        ENVIRONMENT: production
+        PYTHON_VERSION: 3.11
+    image: audio-ai/production-system:latest
+    container_name: audio-production-system
+    restart: unless-stopped
+    ports:
+      - "8000:8000"  # API port
+      - "9090:9090"  # Metrics port
+    volumes:
+      - audio_data:/app/data
+      - audio_logs:/app/logs
+      - audio_uploads:/app/uploads
+      - audio_models:/app/cultural_models
+      - ./config:/app/config:ro
+    environment:
+      - ENVIRONMENT=production
+      - HOST=0.0.0.0
+      - PORT=8000
+      - LOG_LEVEL=INFO
+      - DEBUG=false
+      
+      # Database configuration
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=production_audio
+      - DB_USER=audio_user
+      - DB_PASSWORD=${DB_PASSWORD:-audio_secure_password}
+      
+      # Redis configuration
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-}
+      
+      # Celery configuration
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      
+      # Monitoring configuration
+      - DATADOG_API_KEY=${DATADOG_API_KEY:-}
+      - SENTRY_DSN=${SENTRY_DSN:-}
+      
+      # Security
+      - SECRET_KEY=${SECRET_KEY:-change-this-in-production}
+      
+      # Processing configuration
+      - MAX_THREAD_WORKERS=8
+      - MAX_PROCESS_WORKERS=4
+      - NUM_WORKERS=6
+      - MAX_FILE_SIZE=524288000  # 500MB
+      
+      # MAXXI Integration
+      - MAXXI_COMPATIBILITY_MODE=true
+      - MAXXI_OUTPUT_DIR=/app/data/maxxi_outputs
+      - MAXXI_DATA_FORMAT=json
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - audio-ai-network
+    healthcheck:
+      test: ["CMD", "/app/healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+  # ==============================================================================
+  # Database Service
+  # ==============================================================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: audio-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=production_audio
+      - POSTGRES_USER=audio_user
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-audio_secure_password}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./postgres/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+    networks:
+      - audio-ai-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-audio_user} -d ${POSTGRES_DB:-production_audio}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+
+  # ==============================================================================
+  # Redis Cache Service
+  # ==============================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: audio-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass "${REDIS_PASSWORD:-}" --maxmemory 1gb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      - audio-ai-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 512M
+
+  # ==============================================================================
+  # Celery Worker Service
+  # ==============================================================================
+  celery-worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: production
+    image: audio-ai/production-system:latest
+    container_name: audio-celery-worker
+    restart: unless-stopped
+    command: celery -A production_audio_system.celery_app worker --loglevel=info --concurrency=4
+    volumes:
+      - audio_data:/app/data
+      - audio_logs:/app/logs
+      - audio_uploads:/app/uploads
+      - audio_models:/app/cultural_models
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=production_audio
+      - DB_USER=audio_user
+      - DB_PASSWORD=${DB_PASSWORD:-audio_secure_password}
+      - REDIS_HOST=redis
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - audio-ai-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 3G
+        reservations:
+          cpus: '1.0'
+          memory: 1.5G
+      replicas: 2
+
+  # ==============================================================================
+  # Monitoring Services
+  # ==============================================================================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: audio-prometheus
+    restart: unless-stopped
+    ports:
+      - "9091:9090"
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.console.templates=/usr/share/prometheus/consoles
+      - --storage.tsdb.retention.time=200h
+      - --web.enable-lifecycle
+      - --web.route-prefix=/
+      - --web.external-url=http://localhost:9091/
+    volumes:
+      - prometheus_data:/prometheus
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus/rules/:/etc/prometheus/rules/:ro
+    networks:
+      - audio-ai-network
+    depends_on:
+      - production-audio-system
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 512M
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: audio-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./grafana/plugins:/var/lib/grafana/plugins
+    networks:
+      - audio-ai-network
+    depends_on:
+      - prometheus
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 512M
+
+  # ==============================================================================
