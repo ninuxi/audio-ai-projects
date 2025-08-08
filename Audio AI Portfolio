@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio AI Engineer - Cultural Heritage & Enterprise Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+        
+        .project-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+        
+        .demo-section {
+            background: #f7fafc;
+            padding: 80px 0;
+        }
+        
+        .demo-container {
+            text-align: center;
+        }
+        
+        .demo-video {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            background: #2d3748;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .warning-banner {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            border-left: 4px solid #c53030;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🎵 Audio AI Engineer</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#progetti">Progetti</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Audio AI Engineer</h1>
+                <p>Specializzato in Cultural Heritage & Enterprise Audio Solutions</p>
+                <p>Sound Designer + 3+ Anni AI Experience → Soluzioni Audio Innovative</p>
+                
+                <div class="cta-buttons">
+                    <a href="#demo" class="btn btn-primary">🎯 Vedi Demo Live</a>
+                    <a href="#progetti" class="btn btn-secondary">📁 Portfolio Progetti</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="progetti" class="section">
+        <div class="container">
+            <h2 class="section-title">🏆 Portfolio Professionale</h2>
+            
+            <div class="warning-banner">
+                ⚠️ <strong>DEMO VERSION</strong> - Questi sono esempi semplificati delle capacità complete. 
+                Il codice di produzione include algoritmi avanzati proprietari e modelli AI specializzati.
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">RAI Archive AI Tool</h3>
+                        <p class="project-description">Sistema di catalogazione automatica per 100,000+ ore di archivi RAI. Classificazione generi, estrazione metadati, search engine intelligente.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">€4.8M</span>
+                                <span>Risparmio Stimato</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">95%</span>
+                                <span>Accuracy</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">24/7</span>
+                                <span>Automazione</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="alert('Demo disponibile su richiesta - Contatta per accesso completo')">🎯 Demo Limitato</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3 class="project-title">TIM Call Analytics</h3>
+                        <p class="project-description">Platform enterprise per analisi qualità chiamate, speaker recognition, sentiment analysis, quality score automatico.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">2M+</span>
+                                <span>Chiamate/Anno</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">40%</span>
+                                <span>Miglioramento ROI</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">Real-time</span>
+                                <span>Processing</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="alert('Sistema Enterprise - Demo su richiesta')">📊 Enterprise Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🎭</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cultural Heritage Platform</h3>
+                        <p class="project-description">Piattaforma completa per digitalizzazione patrimonio culturale. Target: musei, biblioteche, archivi storici italiani.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">€2.5M</span>
+                                <span>Market Opportunity</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">25+</span>
+                                <span>Istituzioni Target</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">80%</span>
+                                <span>Cost Reduction</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="showCulturalDemo()">🏛️ Interactive Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2 class="section-title">🎯 Demo Interattivi</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
+                Esplora le capacità dei sistemi Audio AI (versioni semplificate per demo pubblico)
+            </p>
+            
+            <div class="demo-video">
+                🎵 Audio Visualizer Demo<br>
+                <small>Click per caricare demo interattivo</small>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="contact-item">
+                    <div class="contact-icon">🎛️</div>
+                    <h3>Audio Feature Extractor</h3>
+                    <p>Analisi spettrali, MFCC, chromagram, features temporali</p>
+                    <button class="btn btn-secondary" onclick="loadAudioDemo()">Prova Demo</button>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">🎯</div>
+                    <h3>Genre Classifier</h3>
+                    <p>Classificazione automatica generi musicali e contenuti parlati</p>
+                    <button class="btn btn-secondary" onclick="loadGenreDemo()">Test Classifier</button>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📊</div>
+                    <h3>Quality Analyzer</h3>
+                    <p>Valutazione qualità audio, degradation detection, restoration</p>
+                    <button class="btn btn-secondary" onclick="loadQualityDemo()">Analizza Qualità</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="business" class="section">
+        <div class="container">
+            <h2 class="section-title">💼 Business Impact</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                <div style="text-align: center;">
+                    <h3 style="color: #667eea; font-size: 2rem; margin-bottom: 1rem;">🎯 Target Markets</h3>
+                    <ul style="text-align: left; font-size: 1.1rem; line-height: 2;">
+                        <li><strong>Broadcasting Archives</strong> (RAI Teche, Mediaset)</li>
+                        <li><strong>Cultural Institutions</strong> (Musei, Biblioteche)</li>
+                        <li><strong>Enterprise Audio</strong> (Call centers, TLC)</li>
+                        <li><strong>Live Performance</strong> (Teatri, Sale concerti)</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center;">
+                    <h3 style="color: #667eea; font-size: 2rem; margin-bottom: 1rem;">📈 ROI Calculations</h3>
+                    <div style="text-align: left; font-size: 1.1rem; line-height: 2;">
+                        <div><strong>RAI Archives:</strong> €4.8M savings</div>
+                        <div><strong>Call Centers:</strong> 40% efficiency improvement</div>
+                        <div><strong>Museums:</strong> 80% cost reduction</div>
+                        <div><strong>Setup Time:</strong> 2-4 settimane</div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <h3 style="color: #667eea; font-size: 2rem; margin-bottom: 1rem;">🚀 Competitive Advantage</h3>
+                    <ul style="text-align: left; font-size: 1.1rem; line-height: 2;">
+                        <li><strong>Italian Cultural Heritage</strong> specialization</li>
+                        <li><strong>Enterprise-grade</strong> architecture</li>
+                        <li><strong>Real-world proven</strong> in production</li>
+                        <li><strong>3+ years AI</strong> + 10+ years audio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contatti" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">🤝 Collaborazioni Professionali</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                Disponibile per consulenze, sviluppo custom, e partnership strategiche
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email Professionale</h3>
+                    <p>Per consulenze e progetti enterprise</p>
+                    <p><strong>audio.ai.engineer@email.com</strong></p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>Network professionale e referenze</p>
+                    <p><strong>linkedin.com/in/audio-ai-engineer</strong></p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">🔗</div>
+                    <h3>Portfolio Completo</h3>
+                    <p>Codice privato disponibile sotto NDA</p>
+                    <button class="btn btn-secondary">Richiedi Accesso</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Audio AI Engineer. Portfolio Demo - Algoritmi proprietari non inclusi.</p>
+            <p>🇮🇹 Specialized in Italian Cultural Heritage & Enterprise Audio Solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        // Demo interactions
+        function showCulturalDemo() {
+            alert('🏛️ Cultural Heritage Demo\n\n' +
+                  'Questo è un esempio delle capacità:\n' +
+                  '• Automatic genre classification\n' +
+                  '• Metadata extraction\n' +
+                  '• Quality assessment\n' +
+                  '• Cultural significance scoring\n\n' +
+                  'Demo completo disponibile su richiesta con NDA');
+        }
+        
+        function loadAudioDemo() {
+            alert('🎛️ Audio Feature Extractor\n\n' +
+                  'Demo semplificato caricato!\n' +
+                  'Funzionalità complete includono:\n' +
+                  '• 200+ features audio\n' +
+                  '• Real-time processing\n' +
+                  '• Cultural context analysis\n' +
+                  '• Enterprise integration');
+        }
+        
+        function loadGenreDemo() {
+            alert('🎯 Genre Classifier\n\n' +
+                  'Modello demo con classificazione base.\n' +
+                  'Versione professionale include:\n' +
+                  '• 50+ generi italiani\n' +
+                  '• Context-aware classification\n' +
+                  '• Historical period detection\n' +
+                  '• Cultural significance scoring');
+        }
+        
+        function loadQualityDemo() {
+            alert('📊 Quality Analyzer\n\n' +
+                  'Analisi qualità di base.\n' +
+                  'Sistema completo include:\n' +
+                  '• Degradation detection\n' +
+                  '• Restoration recommendations\n' +
+                  '• Preservation prioritization\n' +
+                  '• Enterprise reporting');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>

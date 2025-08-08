@@ -1,0 +1,27 @@
+# System files
+.DS_Store
+.Trash/
+*.pyc
+__pycache__/
+.env
+*.log
+
+# Large audio files (keep small samples only)
+*.wav
+*.mp3
+*.flac
+!data/*_sample.wav
+!examples/*.wav
+
+# Backup directory (not for public repo)
+production_backup/
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/

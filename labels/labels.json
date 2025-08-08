@@ -1,0 +1,83 @@
+[
+    {
+        "color": "d73a4a",
+        "default": true,
+        "description": "Something isn't working",
+        "id": 8921903177,
+        "name": "bug",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwSQ",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/bug"
+    },
+    {
+        "color": "0075ca",
+        "default": true,
+        "description": "Improvements or additions to documentation",
+        "id": 8921903189,
+        "name": "documentation",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwVQ",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/documentation"
+    },
+    {
+        "color": "cfd3d7",
+        "default": true,
+        "description": "This issue or pull request already exists",
+        "id": 8921903195,
+        "name": "duplicate",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwWw",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/duplicate"
+    },
+    {
+        "color": "a2eeef",
+        "default": true,
+        "description": "New feature or request",
+        "id": 8921903200,
+        "name": "enhancement",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwYA",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/enhancement"
+    },
+    {
+        "color": "7057ff",
+        "default": true,
+        "description": "Good for newcomers",
+        "id": 8921903213,
+        "name": "good first issue",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwbQ",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/good%20first%20issue"
+    },
+    {
+        "color": "008672",
+        "default": true,
+        "description": "Extra attention is needed",
+        "id": 8921903206,
+        "name": "help wanted",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwZg",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/help%20wanted"
+    },
+    {
+        "color": "e4e669",
+        "default": true,
+        "description": "This doesn't seem right",
+        "id": 8921903217,
+        "name": "invalid",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwcQ",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/invalid"
+    },
+    {
+        "color": "d876e3",
+        "default": true,
+        "description": "Further information is requested",
+        "id": 8921903220,
+        "name": "question",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwdA",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/question"
+    },
+    {
+        "color": "ffffff",
+        "default": true,
+        "description": "This will not be worked on",
+        "id": 8921903223,
+        "name": "wontfix",
+        "node_id": "LA_kwDOPKQWgM8AAAACE8lwdw",
+        "url": "https://api.github.com/repos/ninuxi/audio-ai-projects/labels/wontfix"
+    }
+]
