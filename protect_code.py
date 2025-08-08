@@ -32,21 +32,21 @@ class AudioAICodeProtector:
         # Sostituzioni specifiche per audio-ai-projects
         self.demo_replacements = {
             # Modelli AI avanzati → basic
-            'RandomForestClassifier(n_estimators=100': 'RandomForestClassifier(n_estimators=10  # Demo: Simplified',
-            'XGBClassifier': 'RandomForestClassifier  # Demo: Basic model instead of XGB',
-            'neural_network': 'simple_classifier  # Demo: Basic classification',
-            'advanced_features': 'basic_features  # Demo: Limited features',
+            'RandomForestClassifier(n_estimators=10  # Demo: Simplified': 'RandomForestClassifier(n_estimators=10  # Demo: Simplified',
+            'RandomForestClassifier  # Demo: Basic model instead of XGB': 'RandomForestClassifier  # Demo: Basic model instead of XGB',
+            'simple_classifier  # Demo: Basic classification': 'simple_classifier  # Demo: Basic classification',
+            'basic_features  # Demo: Limited features': 'basic_features  # Demo: Limited features',
             
             # Enterprise → Demo
-            'enterprise_processing': 'demo_processing',
-            'production_model': 'demo_model',
-            'proprietary_algorithm': 'standard_algorithm',
-            'commercial_license': 'demo_license',
+            'demo_processing': 'demo_processing',
+            'demo_model': 'demo_model',
+            'standard_algorithm': 'standard_algorithm',
+            'demo_license': 'demo_license',
             
             # RAI/TIM specifici
-            'rai_enterprise_api': 'rai_demo_api',
-            'tim_production_system': 'tim_demo_system',
-            'cultural_heritage_advanced': 'cultural_heritage_basic',
+            'rai_demo_api': 'rai_demo_api',
+            'tim_demo_system': 'tim_demo_system',
+            'cultural_heritage_basic': 'cultural_heritage_basic',
         }
         
         print("🔒 AUDIO AI PROJECTS - CODE PROTECTION")
@@ -305,21 +305,21 @@ Demo License: Educational use only
                 # Sostituzioni con regex per pattern più complessi
                 regex_replacements = [
                     # Modelli ML complessi
-                    (r'RandomForestClassifier\(n_estimators=\d{2,}\)', 'RandomForestClassifier(n_estimators=10)  # Demo: Simplified'),
-                    (r'XGBClassifier\([^)]+\)', 'RandomForestClassifier(n_estimators=5)  # Demo: Basic model'),
+                    (r'RandomForestClassifier\(n_estimators=\d{2,}\)', 'RandomForestClassifier(n_estimators=10)  # Demo: Simplified  # Demo: Simplified'),
+                    (r'RandomForestClassifier  # Demo: Basic model instead of XGB\([^)]+\)', 'RandomForestClassifier(n_estimators=5)  # Demo: Basic model'),
                     (r'\.fit\(X_train,.*complex.*\)', '.fit(X_train, y_train)  # Demo: Basic training'),
                     
                     # Features complesse
                     (r'extract_\w*advanced\w*_features', 'extract_basic_features  # Demo: Limited features'),
-                    (r'n_mfcc=\d{2,}', 'n_mfcc=13  # Demo: Standard MFCC count'),
+                    (r'n_mfcc=\d{2,}', 'n_mfcc=13  # Demo: Standard MFCC count  # Demo: Standard MFCC count'),
                     
                     # Processing enterprise
                     (r'batch_size=\d{3,}', 'batch_size=10  # Demo: Small batches'),
                     (r'max_workers=\d{2,}', 'max_workers=2  # Demo: Limited workers'),
                     
                     # Database enterprise
-                    (r'PostgreSQL', 'SQLite  # Demo: Simplified database'),
-                    (r'MongoDB', 'JSON files  # Demo: File-based storage'),
+                    (r'SQLite  # Demo: Simplified database', 'SQLite  # Demo: Simplified database'),
+                    (r'JSON files  # Demo: File-based storage', 'JSON files  # Demo: File-based storage'),
                 ]
                 
                 for pattern, replacement in regex_replacements:
