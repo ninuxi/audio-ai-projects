@@ -25,7 +25,7 @@ This repository contains **simplified demonstration versions** of production aud
 - **Cultural Institutions**: €2.5M total addressable market (25+ institutions)
 
 ### 📧 Production System Access:
-**Contact**: audio.ai.engineer@example.com  
+**Contact**: oggettosonoro@gmail.com 
 **Subject**: Production System Access Request  
 **Requirements**: NDA signature for full codebase access  
 **Available for**: Enterprise clients and institutional partnerships
@@ -48,7 +48,7 @@ This repository contains **simplified demonstration versions** of production aud
 
 **Advanced artificial intelligence platform** for audio processing, specialized in **Italian cultural heritage** applications and **production-ready enterprise architectures**.
 
-Built in Italy 🇮🇹 for global cultural preservation and digital transformation.
+Built in Italy for global cultural preservation and digital transformation.
 
 ### ⭐ Key Features
 
@@ -168,9 +168,9 @@ python production_audio_system.py
 - **Pandas + NumPy** - Data processing
 - **Matplotlib + Seaborn** - Data visualization
 
-## 🏆 Made in Italy for Global Cultural Preservation
+## 🏆 Made for Global Cultural Preservation
 
-Project **developed in Italy** with specific focus on:
+Project developed with specific focus on:
 - **Italian cultural heritage** and musical traditions
 - **Integration with institutions** like RAI, MAXXI, Triennale
 - **Compliance** with Italian and European regulations (GDPR)
