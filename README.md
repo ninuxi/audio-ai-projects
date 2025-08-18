@@ -125,6 +125,8 @@ python production_audio_system.py
 - **Real-time FFT** analysis and visualization
 - **Spectrograms** and time-frequency analysis
 - **Foundation** for advanced systems
+- - ▶️ Guarda la Demo Live su Hugging Face
+- [![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Demo%20Live-yellow.svg)](https://huggingface.co/spaces/antoniiiii/audio-visualizer-demo)
 
 ### 🔄 Scalability: Batch Processing System  
 - **Scalable pipeline** for high-volume processing
