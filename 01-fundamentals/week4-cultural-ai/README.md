@@ -51,6 +51,7 @@ AI-powered platform for cultural content analysis and heritage preservation appl
 ## 🎭 RAI Archive Integration
 
 This project includes a powerful integration with **RAI Archive Tool** (`rai-archive-tool/rai_archive_tool.py`), providing specialized functionality for processing and analyzing RAI Teche audio content.
+![Demo del RAI Archive Tool](../../docs/demo-rai.gif)
 
 ### Key Features of RAI Archive Tool:
 - 📚 **Automated cataloging** of RAI historical recordings
