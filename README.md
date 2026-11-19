@@ -1,232 +1,60 @@
-# 🎵 Audio AI Projects - DEMO VERSION
+# Audio AI Projects
 
-## ⚠️  IMPORTANT: PORTFOLIO DEMONSTRATION
-
-This repository contains **simplified demonstration versions** of production audio AI systems.
-
-### 🔒 What's Different in Demo:
-- **Algorithms**: Basic implementations instead of proprietary advanced methods
-- **AI Models**: Simplified classifiers vs enterprise-grade neural networks
-- **Features**: ~20 basic features vs 200+ advanced features in production
-- **Performance**: Demo-level vs enterprise-optimized processing
-- **Scale**: Single file processing vs enterprise batch systems (1000+ files/hour)
-- **Integration**: Standalone demos vs full enterprise API/database integration
-
-### 🚀 Production Systems Include:
-- **Advanced AI**: Proprietary algorithms for cultural heritage analysis
-- **Enterprise Architecture**: Scalable, production-ready systems
-- **Cultural Specialization**: Italian institution-specific workflows
-- **Business Integration**: Complete ROI analysis and implementation
-- **Professional Support**: 24/7 monitoring, SLA guarantees
-
-### 💼 Proven Business Cases:
-- **RAI Teche Archive**: €4.8M cost savings potential (100,000+ hours)
-- **TIM Call Analytics**: 40% efficiency improvement (2M+ calls/year)
-- **Cultural Institutions**: €2.5M total addressable market (25+ institutions)
-
-### 📧 Production System Access:
-**Contact**: oggettosonoro@gmail.com 
-**Subject**: Production System Access Request  
-**Requirements**: NDA signature for full codebase access  
-**Available for**: Enterprise clients and institutional partnerships
-
----
-
-## 📁 Demo Portfolio Structure
-
-# 🎵 Audio AI Projects - Enterprise Audio Intelligence Systems
-
-![CI/CD Pipeline](https://github.com/ninuxi/audio-ai-projects/workflows/CI/CD%20Pipeline/badge.svg)
-![Python](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11-blue)
+![CI](https://github.com/ninuxi/audio-ai-projects/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue)
 ![License](https://img.shields.io/github/license/ninuxi/audio-ai-projects)
-![Stars](https://img.shields.io/github/stars/ninuxi/audio-ai-projects)
-![Forks](https://img.shields.io/github/forks/ninuxi/audio-ai-projects)
 
-> **🇮🇹 [Versione Italiana](README_IT.md)** | 
+> 🇮🇹 [Versione italiana](README_IT.md)
 
-## 🎯 Enterprise-Grade AI Systems for Audio Analysis & Cultural Heritage
+A six-module path in Python audio analysis and machine learning, built step by step in 2025: from feature extraction and visualization to a small API service for cataloguing sound archives.
 
-**Advanced artificial intelligence platform** for audio processing, specialized in **Italian cultural heritage** applications and **production-ready enterprise architectures**.
+I am a sound engineer with 20+ years of live and installation work, moving into AI engineering. This repository is where I learned and practised the Python side: signal processing with librosa, classic machine learning with scikit-learn, packaging with Docker, a REST API, tests and CI.
 
-Built in Italy for global cultural preservation and digital transformation.
+**Status:** personal portfolio and learning project. It is not deployed at any institution. Archives and museums mentioned in the module docs (RAI Teche, MAXXI) are design scenarios used to frame the exercises, not clients.
 
-### ⭐ Key Features
+## Modules
 
-- 🏛️ **MAXXI Museum Integration** - Enterprise system for Italian cultural institutions
-- 🎼 **Heritage Audio Classification** - AI specialized for cultural content analysis
-- 🏭 **Production Architecture** - Scalable, enterprise-grade reliability  
-- ⚡ **Real-time Processing** - Audio analysis with <50ms latency
-- 🐳 **Cloud Native** - Docker/Kubernetes ready deployment
-- 📊 **Advanced Analytics** - Comprehensive monitoring and metrics
-- 🔒 **Enterprise Security** - Data protection and audit compliance
+| Module | What it does | Main tools |
+| --- | --- | --- |
+| [week1-audio-visualizer](01-fundamentals/week1-audio-visualizer) | Loads audio, plots waveform, spectrum and spectrogram, extracts MFCC and spectral features | librosa, NumPy, Matplotlib |
+| [week2-batch-processor](01-fundamentals/week2-batch-processor) | Processes folders of audio files: validation, format conversion, normalization, noise reduction, metadata extraction, quality reports | librosa, soundfile, mutagen, pandas |
+| [week3-call-analytics](01-fundamentals/week3-call-analytics) | Voice activity detection and speaker recognition on call recordings, from MFCC features | scikit-learn (Random Forest), librosa |
+| [week4-cultural-ai](01-fundamentals/week4-cultural-ai) | Genre and content classification for archive audio, plus metadata generation from text descriptions | scikit-learn (SVM, TF-IDF), librosa |
+| [week5-production](01-fundamentals/week5-production) | Wraps the analysis in a service with configuration, logging, health checks and a Docker image | Docker, docker-compose, SQLite, optional Redis |
+| [week6-production-systems](01-fundamentals/week6-production-systems) | Archive digitization prototype: quality assessment, degradation detection, automatic cataloguing, REST API with authentication | FastAPI, SQLite, scikit-learn |
 
-## 💼 Business Impact - €9M+ Market Opportunity
+The week3 and week4 demos train and run on synthetic signals, and the week4 demo prints a simulated classification, because no labelled dataset was used. Treat their accuracy figures as untested.
 
-### 🎯 Target Markets
-
-| Institution Type | Market Size | Use Cases |
-|------------------|-------------|-----------|
-| 🎬 **Broadcasting Archives** (RAI Teche) | €4.8M | Historical TV/Radio digitization |
-| 🏛️ **Museums** (MAXXI, Triennale) | €1.5M | Interactive audio experiences |
-| 📚 **National Libraries** | €2.5M | Automatic collection cataloging |
-| 🎭 **Opera Houses & Theaters** | €600K | Acoustic analytics for live performance |
-
-### 📈 Proven ROI
-- **90% accuracy** in automatic classification
-- **60-80% reduction** in manual processing time
-- **300% increase** in museum visitor engagement
-- **€50-100K setup + €20K/year** per institution
-
-## 🚀 Quick Start
+## Quick start
 
 ```bash
-# Clone repository
 git clone https://github.com/ninuxi/audio-ai-projects.git
 cd audio-ai-projects
 
-# Setup Python environment
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# venv\Scripts\activate     # Windows
+source venv/bin/activate        # Windows: venv\Scripts\activate
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Launch main system
-python production_audio_system.py
+pip install -r requirements.txt pytest
+python -m pytest tests          # 25 tests
 ```
 
-## 🏗️ System Architecture
+Each module has its own README and, where needed, its own `requirements.txt`.
 
-```
-┌─────────────────────────────────────────────────┐
-│                 Load Balancer                   │
-└─────────────────┬───────────────────────────────┘
-                  │
-┌─────────────────▼───────────────────────────────┐
-│            API Gateway & Auth                   │
-└─────────┬─────────────────────┬─────────────────┘
-          │                     │
-┌─────────▼─────────┐  ┌───────▼─────────┐
-│   AI Processing   │  │  Cultural       │
-│   Workers         │  │  Heritage       │
-│   (Real-time)     │  │  Classifier     │
-└─────────┬─────────┘  └───────┬─────────┘
-          │                     │
-┌─────────▼─────────────────────▼─────────┐
-│        Database & Cache Layer           │
-│     (PostgreSQL + Redis)                │
-└─────────────────────────────────────────┘
-```
+## What I would do next
 
-## 📊 Project Portfolio
+- Replace the synthetic data in week3 and week4 with a public labelled dataset and report real accuracy.
+- Try pretrained audio embeddings (for example PANNs or CLAP) instead of hand-made MFCC features.
+- Move the week6 API to a proper database and add integration tests.
 
-### 🎪 Foundation: Audio Visualizer
-- **Real-time FFT** analysis and visualization
-- **Spectrograms** and time-frequency analysis
-- **Foundation** for advanced systems
+## Related work
 
-### 🔄 Scalability: Batch Processing System  
-- **Scalable pipeline** for high-volume processing
-- **Multi-threading** and queue management
-- **Optimized parallel** processing
+- **MOOD**: real-time computer vision and audio analysis that drives sound, light and video in installations (Python, OpenCV, Node.js, OSC).
+- **auto-eq-agente**: FastAPI backend with LLM agents that parse loudspeaker measurement files and suggest EQ.
 
-### 🤖 Intelligence: Cultural AI Models
-- **Automatic classification** of cultural heritage
-- **Specialized models** for Italian content  
-- **Training on historical** and traditional datasets
+## Contact
 
-### 🏭 Enterprise: Production Systems
-- **Enterprise architecture** with monitoring
-- **CI/CD pipeline** and automated deployment
-- **Logging, metrics** and health checks
+Antonio Mainenti · Rome · oggettosonoro@gmail.com · [LinkedIn](https://www.linkedin.com/in/mainenti/) · [mainenti.net](https://www.mainenti.net/)
 
-### 🌐 Platform: Heritage Digitization System
-- **Complete solution** for cultural institutions
-- **RESTful API** and database integration
-- **Business case** for Italian market
+## License
 
-## 🛠️ Technology Stack
-
-### Core Platform
-- **Python 3.9+** - Primary language
-- **LibROSA** - Professional audio analysis
-- **FastAPI** - High-performance REST API  
-- **PyTorch** - Deep learning and AI models
-- **PostgreSQL** - Relational database
-- **Redis** - Cache and queue management
-
-### DevOps & Deployment
-- **Docker** - Containerization
-- **GitHub Actions** - CI/CD pipeline
-- **Nginx** - Load balancing and reverse proxy
-- **Prometheus + Grafana** - Comprehensive monitoring
-
-### AI & Machine Learning
-- **Scikit-learn** - Traditional machine learning
-- **TensorFlow** - Neural networks
-- **Pandas + NumPy** - Data processing
-- **Matplotlib + Seaborn** - Data visualization
-
-## 🏆 Made for Global Cultural Preservation
-
-Project developed with specific focus on:
-- **Italian cultural heritage** and musical traditions
-- **Integration with institutions** like RAI, MAXXI, Triennale
-- **Compliance** with Italian and European regulations (GDPR)
-- **Multilingual support** Italian/English
-
-## 🤝 Contributing
-
-```bash
-# Fork the repository
-git fork https://github.com/ninuxi/audio-ai-projects.git
-
-# Create feature branch
-git checkout -b feature/new-functionality
-
-# Commit and push
-git commit -m "Add: new functionality"
-git push origin feature/new-functionality
-
-# Open Pull Request on GitHub
-```
-
-## 🌟 Community
-
-- **🐙 GitHub**: [@ninuxi](https://github.com/ninuxi)
-- **💼 LinkedIn**: https://www.linkedin.com/in/mainenti/
-- **📧 Email**: oggettosonoro@gmail.com
-- **🌐 Website**: https://www.mainenti.net/
-
-## 📞 Business Opportunities
-
-Interested in integrating these systems into your cultural institution?
-
-### 🎯 Available Services
-- **🆓 Proof of Concept**: Free 30-day demo
-- **🔧 Technical Consulting**: Specific requirements analysis
-- **🤝 Commercial Partnerships**: Revenue sharing for integrators
-- **🎓 Academic Collaborations**: Research and development programs
-
-### 📋 Enterprise Features
-- **24/7 Support** and SLA guarantees
-- **Custom AI Models** for specific collections
-- **White-label Solutions** with your branding
-- **Multi-tenant Architecture** for service providers
-
----
-
-⭐ **If this project is useful to you, leave a star!** ⭐  
-🍴 **Fork and contribute** to the future of cultural digitization  
-🔔 **Watch** to stay updated on new developments
-
----
-
-*Last update: July 2025 | Version: 1.0 | Status: Production Ready*
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Copyright (c) 2025 Antonio Mainenti. Made with ❤️
+MIT, see [LICENSE](LICENSE).

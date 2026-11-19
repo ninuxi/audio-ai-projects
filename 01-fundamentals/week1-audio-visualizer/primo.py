@@ -1,51 +1,4 @@
 """
-🎵 PRIMO.PY - DEMO VERSION
-===================================
-
-⚠️  PORTFOLIO DEMONSTRATION ONLY
-
-This file has been simplified for public demonstration.
-Production version includes:
-
-🧠 ADVANCED FEATURES NOT SHOWN:
-- Proprietary machine learning algorithms
-- Enterprise-grade optimization
-- Cultural heritage specialized models
-- Real-time processing capabilities
-- Advanced error handling & recovery
-- Production database integration
-- Scalable cloud architecture
-
-🏛️ CULTURAL HERITAGE SPECIALIZATION:
-- Italian institutional workflow integration
-- RAI Teche archive processing algorithms
-- Museum and library specialized tools
-- Cultural context AI analysis
-- Historical audio restoration methods
-
-💼 ENTERPRISE CAPABILITIES:
-- Multi-tenant architecture
-- Enterprise security & compliance
-- 24/7 monitoring & support
-- Custom institutional workflows
-- Professional SLA guarantees
-
-📧 PRODUCTION SYSTEM ACCESS:
-Email: audio.ai.engineer@example.com
-Subject: Production System Access Request
-Requirements: NDA signature required
-
-🎯 BUSINESS CASES PROVEN:
-- RAI Teche: €4.8M cost savings potential
-- TIM Enterprise: 40% efficiency improvement  
-- Cultural Institutions: €2.5M market opportunity
-
-Copyright (c) 2025 Audio AI Engineer
-Demo License: Educational use only
-"""
-
-
-"""
 Audio AI Projects - Advanced Audio Processing System
 Copyright (c) 2025 Antonino Mainenti (ninuxi)
 Licensed under MIT License - see LICENSE file
@@ -122,7 +75,7 @@ class AudioFeatureVisualizer:
         features = {}
         
         # MFCC (Mel-frequency cepstral coefficients)
-        mfccs = librosa.feature.mfcc(y=self.y, sr=self.sr, n_mfcc=13  # Demo: Standard MFCC count)
+        mfccs = librosa.feature.mfcc(y=self.y, sr=self.sr, n_mfcc=13)
         features['mfcc'] = mfccs
         
         # Chroma features
@@ -219,7 +172,7 @@ class AudioFeatureVisualizer:
         
         return onset_times, beat_times, tempo
     
-    def basic_features  # Demo: Limited features(self):
+    def advanced_features(self):
         """Features avanzate per ML"""
         print("\n🔬 ANALISI AVANZATA...")
         
@@ -302,7 +255,7 @@ class AudioFeatureVisualizer:
         
         # Nuove analisi
         onset_times, beat_times, tempo = self.detect_onsets_and_beats()
-        basic_features  # Demo: Limited features = self.basic_features  # Demo: Limited features()
+        advanced_features = self.advanced_features()
         
         # Statistiche estese
         print("\n📊 STATISTICHE COMPLETE:")
@@ -336,30 +289,9 @@ class AudioFeatureVisualizer:
         else:
             print("🎵 Probabilmente: MUSICA MISTA")
         
-        return features, basic_features  # Demo: Limited features
+        return features, advanced_features
 
 # Esempio di utilizzo
-
-# =============================================
-# DEMO LIMITATIONS ACTIVE
-# =============================================
-print("⚠️  DEMO VERSION ACTIVE")
-print("🎯 Portfolio demonstration with simplified algorithms")
-print("📊 Production system includes 200+ features vs demo's basic set")
-print("🚀 Enterprise capabilities: Real-time processing, advanced AI, cultural heritage specialization")
-print("📧 Full system access: audio.ai.engineer@example.com")
-print("=" * 60)
-
-# Demo feature limitations
-DEMO_MODE = True
-MAX_FEATURES = 20  # vs 200+ in production
-MAX_FILES_BATCH = 5  # vs 1000+ in production
-PROCESSING_TIMEOUT = 30  # vs enterprise unlimited
-
-if DEMO_MODE:
-    print("🔒 Demo mode: Advanced features disabled")
-    print("🎓 Educational purposes only")
-
 if __name__ == "__main__":
     # Sostituisci con il path del tuo file audio
     audio_file = "data/tremo.wav"
@@ -369,7 +301,7 @@ if __name__ == "__main__":
         visualizer = AudioFeatureVisualizer(audio_file)
         
         # Esegui analisi completa
-        features, basic_features  # Demo: Limited features = visualizer.analyze_complete()
+        features, advanced_features = visualizer.analyze_complete()
         
         print("\n✅ Analisi completata!")
         print("🎯 Il tuo Audio AI Visualizer è ora completo!")
