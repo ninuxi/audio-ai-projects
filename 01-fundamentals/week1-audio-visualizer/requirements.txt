@@ -1,16 +1,3 @@
-# ========================================
-# AUDIO AI PROJECTS - DEMO REQUIREMENTS
-# ========================================
-#
-# ⚠️  DEMO VERSION DEPENDENCIES
-# Production system requires additional enterprise libraries
-# 
-# 📧 Full requirements available with production system
-# Contact: audio.ai.engineer@example.com
-#
-# 🎯 Demo includes basic audio processing capabilities only
-# ========================================
-
 librosa>=0.10.0
 numpy>=1.21.0
 matplotlib>=3.5.0
@@ -19,5 +6,5 @@ scipy>=1.7.0
 scikit-learn>=1.0.0
 pandas>=1.3.0
 jupyter>=1.0.0
-# torch  # Production models only
-# torch  # Production models only
+torch>=1.12.0
+torchaudio>=0.12.0

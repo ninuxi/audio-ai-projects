@@ -1,51 +1,4 @@
 """
-🎵 DATABASE_SCHEMA_MANAGER.PY - DEMO VERSION
-===================================
-
-⚠️  PORTFOLIO DEMONSTRATION ONLY
-
-This file has been simplified for public demonstration.
-Production version includes:
-
-🧠 ADVANCED FEATURES NOT SHOWN:
-- Proprietary machine learning algorithms
-- Enterprise-grade optimization
-- Cultural heritage specialized models
-- Real-time processing capabilities
-- Advanced error handling & recovery
-- Production database integration
-- Scalable cloud architecture
-
-🏛️ CULTURAL HERITAGE SPECIALIZATION:
-- Italian institutional workflow integration
-- RAI Teche archive processing algorithms
-- Museum and library specialized tools
-- Cultural context AI analysis
-- Historical audio restoration methods
-
-💼 ENTERPRISE CAPABILITIES:
-- Multi-tenant architecture
-- Enterprise security & compliance
-- 24/7 monitoring & support
-- Custom institutional workflows
-- Professional SLA guarantees
-
-📧 PRODUCTION SYSTEM ACCESS:
-Email: audio.ai.engineer@example.com
-Subject: Production System Access Request
-Requirements: NDA signature required
-
-🎯 BUSINESS CASES PROVEN:
-- RAI Teche: €4.8M cost savings potential
-- TIM Enterprise: 40% efficiency improvement  
-- Cultural Institutions: €2.5M market opportunity
-
-Copyright (c) 2025 Audio AI Engineer
-Demo License: Educational use only
-"""
-
-
-"""
 Audio AI Projects - Advanced Audio Processing System
 Copyright (c) 2025 Antonino Mainenti (ninuxi)
 Licensed under MIT License - see LICENSE file
@@ -103,8 +56,8 @@ class DatabaseManager:
     
     Supports multiple database backends:
     - SQLite for small to medium collections
-    - SQLite  # Demo: Simplified database for large institutional deployments
-    - JSON files  # Demo: File-based storage for flexible metadata storage
+    - PostgreSQL for large institutional deployments
+    - MongoDB for flexible metadata storage
     """
     
     def __init__(self, config: Dict[str, Any] = None):
@@ -165,7 +118,7 @@ class DatabaseManager:
         self.logger.info(f"SQLite database initialized: {db_path}")
     
     async def _init_postgresql(self):
-        """Initialize SQLite  # Demo: Simplified database connection pool"""
+        """Initialize PostgreSQL connection pool"""
         
         try:
             self.postgres_pool = await asyncpg.create_pool(
@@ -174,14 +127,14 @@ class DatabaseManager:
                 max_size=10,
                 command_timeout=60
             )
-            self.logger.info("SQLite  # Demo: Simplified database connection pool initialized")
+            self.logger.info("PostgreSQL connection pool initialized")
             
         except Exception as e:
-            self.logger.error(f"SQLite  # Demo: Simplified database initialization failed: {e}")
+            self.logger.error(f"PostgreSQL initialization failed: {e}")
             raise
     
     async def _init_mongodb(self):
-        """Initialize JSON files  # Demo: File-based storage connection"""
+        """Initialize MongoDB connection"""
         
         try:
             self.mongo_client = pymongo.MongoClient(self.connection_string)
@@ -190,10 +143,10 @@ class DatabaseManager:
             
             # Test connection
             self.mongo_client.admin.command('ping')
-            self.logger.info(f"JSON files  # Demo: File-based storage initialized: {db_name}")
+            self.logger.info(f"MongoDB initialized: {db_name}")
             
         except Exception as e:
-            self.logger.error(f"JSON files  # Demo: File-based storage initialization failed: {e}")
+            self.logger.error(f"MongoDB initialization failed: {e}")
             raise
     
     async def _ensure_schema(self):
@@ -337,7 +290,7 @@ class DatabaseManager:
         self.logger.info("SQLite schema created successfully")
     
     async def _create_postgresql_schema(self):
-        """Create SQLite  # Demo: Simplified database schema for cultural heritage data"""
+        """Create PostgreSQL schema for cultural heritage data"""
         
         schema_sql = """
         -- Create schema
@@ -421,10 +374,10 @@ class DatabaseManager:
         async with self.postgres_pool.acquire() as conn:
             await conn.execute(schema_sql)
         
-        self.logger.info("SQLite  # Demo: Simplified database schema created successfully")
+        self.logger.info("PostgreSQL schema created successfully")
     
     async def _create_mongodb_collections(self):
-        """Create JSON files  # Demo: File-based storage collections and indexes"""
+        """Create MongoDB collections and indexes"""
         
         # Collections will be created automatically, but we can set up indexes
         collections = {
@@ -461,7 +414,7 @@ class DatabaseManager:
                 except Exception as e:
                     self.logger.warning(f"Failed to create index {index_spec} on {collection_name}: {e}")
         
-        self.logger.info("JSON files  # Demo: File-based storage collections and indexes created successfully")
+        self.logger.info("MongoDB collections and indexes created successfully")
     
     async def store_item(self, item_id: str, metadata: Dict[str, Any]) -> bool:
         """Store a cultural heritage item with its metadata"""
@@ -582,7 +535,7 @@ class DatabaseManager:
             return False
     
     async def _store_item_postgresql(self, item_id: str, metadata: Dict[str, Any]) -> bool:
-        """Store item in SQLite  # Demo: Simplified database database"""
+        """Store item in PostgreSQL database"""
         
         async with self.postgres_pool.acquire() as conn:
             async with conn.transaction():
@@ -622,11 +575,11 @@ class DatabaseManager:
                     return True
                     
                 except Exception as e:
-                    self.logger.error(f"SQLite  # Demo: Simplified database storage failed: {e}")
+                    self.logger.error(f"PostgreSQL storage failed: {e}")
                     return False
     
     async def _store_item_mongodb(self, item_id: str, metadata: Dict[str, Any]) -> bool:
-        """Store item in JSON files  # Demo: File-based storage"""
+        """Store item in MongoDB"""
         
         try:
             # Prepare document
@@ -654,7 +607,7 @@ class DatabaseManager:
             return result.acknowledged
             
         except Exception as e:
-            self.logger.error(f"JSON files  # Demo: File-based storage storage failed: {e}")
+            self.logger.error(f"MongoDB storage failed: {e}")
             return False
     
     async def get_item(self, item_id: str) -> Optional[Dict[str, Any]]:
@@ -721,7 +674,7 @@ class DatabaseManager:
         return item_data
     
     async def _get_item_postgresql(self, item_id: str) -> Optional[Dict[str, Any]]:
-        """Get item from SQLite  # Demo: Simplified database database"""
+        """Get item from PostgreSQL database"""
         
         async with self.postgres_pool.acquire() as conn:
             # Get main item
@@ -749,7 +702,7 @@ class DatabaseManager:
             return item_data
     
     async def _get_item_mongodb(self, item_id: str) -> Optional[Dict[str, Any]]:
-        """Get item from JSON files  # Demo: File-based storage"""
+        """Get item from MongoDB"""
         
         document = await self.mongo_db.heritage_items.find_one({'_id': item_id})
         return document
@@ -813,7 +766,7 @@ class DatabaseManager:
         return [dict(zip(columns, row)) for row in rows]
     
     async def _search_items_postgresql(self, query: Dict[str, Any], limit: int) -> List[Dict[str, Any]]:
-        """Search items in SQLite  # Demo: Simplified database database"""
+        """Search items in PostgreSQL database"""
         
         # Build dynamic query - simplified version
         base_sql = "SELECT * FROM cultural_heritage.heritage_items"
@@ -839,9 +792,9 @@ class DatabaseManager:
             return [dict(row) for row in rows]
     
     async def _search_items_mongodb(self, query: Dict[str, Any], limit: int) -> List[Dict[str, Any]]:
-        """Search items in JSON files  # Demo: File-based storage"""
+        """Search items in MongoDB"""
         
-        # Build JSON files  # Demo: File-based storage query
+        # Build MongoDB query
         mongo_query = {}
         
         if 'institution' in query:
@@ -914,7 +867,7 @@ class DatabaseManager:
         }
     
     async def _get_stats_postgresql(self, institution: str = None) -> Dict[str, Any]:
-        """Get collection statistics from SQLite  # Demo: Simplified database"""
+        """Get collection statistics from PostgreSQL"""
         
         where_clause = ""
         params = []
@@ -944,7 +897,7 @@ class DatabaseManager:
             }
     
     async def _get_stats_mongodb(self, institution: str = None) -> Dict[str, Any]:
-        """Get collection statistics from JSON files  # Demo: File-based storage"""
+        """Get collection statistics from MongoDB"""
         
         match_stage = {}
         if institution:
@@ -987,11 +940,11 @@ class DatabaseManager:
             
             if self.postgres_pool:
                 await self.postgres_pool.close()
-                self.logger.info("SQLite  # Demo: Simplified database pool closed")
+                self.logger.info("PostgreSQL pool closed")
             
             if self.mongo_client:
                 self.mongo_client.close()
-                self.logger.info("JSON files  # Demo: File-based storage connection closed")
+                self.logger.info("MongoDB connection closed")
                 
         except Exception as e:
             self.logger.error(f"Error closing database connections: {e}")
@@ -1031,7 +984,7 @@ class DatabaseManager:
             return False
     
     async def _backup_postgresql(self, backup_path: str) -> bool:
-        """Backup SQLite  # Demo: Simplified database database"""
+        """Backup PostgreSQL database"""
         
         try:
             import subprocess
@@ -1050,18 +1003,18 @@ class DatabaseManager:
             result = subprocess.run(cmd, capture_output=True, text=True)
             
             if result.returncode == 0:
-                self.logger.info(f"SQLite  # Demo: Simplified database backup created: {backup_file}")
+                self.logger.info(f"PostgreSQL backup created: {backup_file}")
                 return True
             else:
                 self.logger.error(f"pg_dump failed: {result.stderr}")
                 return False
                 
         except Exception as e:
-            self.logger.error(f"SQLite  # Demo: Simplified database backup failed: {e}")
+            self.logger.error(f"PostgreSQL backup failed: {e}")
             return False
     
     async def _backup_mongodb(self, backup_path: str) -> bool:
-        """Backup JSON files  # Demo: File-based storage database"""
+        """Backup MongoDB database"""
         
         try:
             import subprocess
@@ -1082,14 +1035,14 @@ class DatabaseManager:
             result = subprocess.run(cmd, capture_output=True, text=True)
             
             if result.returncode == 0:
-                self.logger.info(f"JSON files  # Demo: File-based storage backup created: {backup_dir}")
+                self.logger.info(f"MongoDB backup created: {backup_dir}")
                 return True
             else:
                 self.logger.error(f"mongodump failed: {result.stderr}")
                 return False
                 
         except Exception as e:
-            self.logger.error(f"JSON files  # Demo: File-based storage backup failed: {e}")
+            self.logger.error(f"MongoDB backup failed: {e}")
             return False
     
     async def migrate_schema(self, target_version: str) -> bool:
@@ -1231,7 +1184,7 @@ class DatabaseManager:
                         ADD COLUMN IF NOT EXISTS schema_version TEXT DEFAULT '1.0.0'
                     """)
             
-            # JSON files  # Demo: File-based storage doesn't need schema changes for this migration
+            # MongoDB doesn't need schema changes for this migration
             
             self.logger.info("Migration 0.0.0 to 1.0.0 completed")
             return True
@@ -1281,7 +1234,7 @@ class DatabaseManager:
             return False
     
     async def _optimize_postgresql(self) -> bool:
-        """Optimize SQLite  # Demo: Simplified database database"""
+        """Optimize PostgreSQL database"""
         
         try:
             async with self.postgres_pool.acquire() as conn:
@@ -1296,15 +1249,15 @@ class DatabaseManager:
                 except Exception as e:
                     self.logger.warning(f"VACUUM failed (normal if no permissions): {e}")
             
-            self.logger.info("SQLite  # Demo: Simplified database database optimized")
+            self.logger.info("PostgreSQL database optimized")
             return True
             
         except Exception as e:
-            self.logger.error(f"SQLite  # Demo: Simplified database optimization failed: {e}")
+            self.logger.error(f"PostgreSQL optimization failed: {e}")
             return False
     
     async def _optimize_mongodb(self) -> bool:
-        """Optimize JSON files  # Demo: File-based storage database"""
+        """Optimize MongoDB database"""
         
         try:
             # Compact collections to reclaim space
@@ -1323,9 +1276,9 @@ class DatabaseManager:
                 except Exception as e:
                     self.logger.warning(f"Reindex failed for {collection_name}: {e}")
             
-            self.logger.info("JSON files  # Demo: File-based storage database optimized")
+            self.logger.info("MongoDB database optimized")
             return True
             
         except Exception as e:
-            self.logger.error(f"JSON files  # Demo: File-based storage optimization failed: {e}")
+            self.logger.error(f"MongoDB optimization failed: {e}")
             return False

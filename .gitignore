@@ -25,3 +25,7 @@ production_backup/
 dist/
 build/
 .pytest_cache/
+
+# Local databases and data generated at runtime
+*.db
+logs/
